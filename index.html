@@ -4,60 +4,485 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="张馨丹，AI 产品经理 / 产品经理。关注 Agent 人机协作、安全机制与数据驱动的体验优化。">
-  <meta name="theme-color" content="#f3f2ed">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2311211c'/%3E%3Cpath d='M18 18h28L23 46h23' fill='none' stroke='%2378d3ab' stroke-width='6'/%3E%3C/svg%3E">
-  <title>张馨丹｜AI 产品经理</title>
+  <meta name="theme-color" content="#fbf6ec">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a4e63'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e8a935' font-weight='500'%3E馨%3C/text%3E%3C/svg%3E">
+  <title>张馨丹｜AI 产品经理 · 一个东北金牛的作品集</title>
   <style>
-    :root{--canvas:#f3f2ed;--ink:#111816;--muted:#59635f;--line:#cbd0c9;--accent:#0b7a53;--accent-soft:#dceae3;--dark:#11211c;--white:#fff;--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:Inter,"PingFang SC","Microsoft YaHei",sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--max:1180px;--radius:3px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--sans);line-height:1.72;-webkit-font-smoothing:antialiased}a{color:inherit}button{font:inherit}.skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--ink);color:white;padding:10px 14px}.skip:focus{top:12px}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--canvas) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}.site-header.scrolled{border-color:var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:var(--serif);font-size:20px;text-decoration:none}.brand span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-decoration:none;color:var(--muted)}.nav-links a:hover{color:var(--accent)}.nav-cta{border:1px solid var(--ink);padding:8px 12px!important;color:var(--ink)!important}.menu{display:none;border:0;background:none;padding:8px}.menu span{display:block;width:22px;height:1px;background:var(--ink);margin:5px}
-    :focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 65%,white);outline-offset:4px}
-    .hero{min-height:calc(100vh - 72px);display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:center;padding:80px 0 96px}.eyebrow,.kicker,.meta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}h1,h2,h3,p{margin-top:0}.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(54px,7vw,94px);line-height:1.03;letter-spacing:-.045em;margin:18px 0 28px}.hero h1 em{font-weight:400;color:var(--accent)}.lead{font-size:clamp(18px,2vw,23px);line-height:1.65;max-width:720px;color:#303a36}.actions{display:flex;gap:12px;margin-top:38px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:12px 17px;border:1px solid var(--ink);font-weight:650;font-size:14px}.btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px)}.btn svg{width:16px;height:16px}.hero-side{position:relative;padding:32px 0 32px 46px;border-left:1px solid var(--line)}.hero-side:before{content:"";position:absolute;left:-5px;top:35px;width:9px;height:9px;border-radius:50%;background:var(--accent)}.hero-side h2{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1.2}.principles{list-style:none;padding:0;margin:28px 0 0}.principles li{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:42px 1fr;gap:12px}.principles b{font-family:var(--mono);font-size:12px;color:var(--accent)}.principles span{font-size:15px;color:var(--muted)}
-    .section{padding:100px 0}.section-head{display:grid;grid-template-columns:3fr 7fr;gap:40px;margin-bottom:58px}.section-head h2{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.05;letter-spacing:-.03em}.section-head p{max-width:700px;font-size:18px;color:var(--muted);align-self:end}.dark{background:var(--dark);color:#eef4f0}.dark .section-head p,.dark .case p,.dark .case li{color:#b9c7c0}.dark .kicker{color:#78d3ab}.cases{position:relative}.cases:before{content:"";position:absolute;left:32px;top:26px;bottom:26px;width:1px;background:#375148}.case{display:grid;grid-template-columns:66px 1fr;gap:34px;padding:0 0 72px}.case:last-child{padding-bottom:0}.case-no{position:relative;z-index:2;width:65px;height:65px;border:1px solid #4b6b5e;background:var(--dark);display:grid;place-items:center;font:13px var(--mono);color:#78d3ab}.case-body{display:grid;grid-template-columns:5fr 3fr;gap:50px;border-top:1px solid #375148;padding-top:25px}.case h3{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.2;margin-bottom:14px}.case .tag{display:inline-block;font:11px var(--mono);color:#78d3ab;margin-bottom:14px}.case ul{margin:0;padding-left:18px}.case li{margin-bottom:10px}.outcome{border-left:1px solid #375148;padding-left:26px}.outcome strong{display:block;color:#fff;font-family:var(--serif);font-size:23px;font-weight:500;margin-bottom:10px}
-    .timeline{border-top:1px solid var(--line)}.role{display:grid;grid-template-columns:2fr 2.5fr 5.5fr;gap:34px;padding:34px 0;border-bottom:1px solid var(--line)}.role time,.role .company{font-family:var(--mono);font-size:12px;color:var(--muted)}.role h3{font-size:18px;margin:0}.role p{color:var(--muted);margin:0}.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:56px}.edu{border-top:3px solid var(--ink);padding-top:22px}.edu h3{font-family:var(--serif);font-size:25px;font-weight:500;margin-bottom:6px}.edu p{color:var(--muted)}
-    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:54px}.skill{background:var(--canvas);padding:30px}.skill .num{font:11px var(--mono);color:var(--accent)}.skill h3{font-family:var(--serif);font-size:23px;font-weight:500;margin:18px 0 10px}.skill p{font-size:14px;color:var(--muted);margin:0}.contact{padding:110px 0;background:var(--accent-soft)}.contact-inner{display:grid;grid-template-columns:7fr 3fr;gap:50px;align-items:end}.contact h2{font-family:var(--serif);font-size:clamp(44px,6vw,76px);font-weight:500;line-height:1.05;letter-spacing:-.04em;margin:12px 0 25px}.contact p{max-width:650px;color:var(--muted);font-size:17px}.contact-links{display:flex;flex-direction:column;gap:12px}.contact-links a{background:var(--canvas);padding:15px 18px;text-decoration:none;border:1px solid transparent}.contact-links a:hover{border-color:var(--accent)}footer{padding:28px 0;font:11px var(--mono);color:var(--muted)}footer .wrap{display:flex;justify-content:space-between;gap:20px}
-    .reveal{opacity:1;transform:none}.motion-ready .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}.motion-ready .reveal.visible{opacity:1;transform:none}
-    @media(max-width:820px){.wrap{width:min(calc(100% - 32px),var(--max))}.menu{display:block}.nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:var(--canvas);border:1px solid var(--line);padding:18px;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px}.hero{grid-template-columns:1fr;gap:38px;padding:55px 0 76px;min-height:auto}.hero h1{font-size:clamp(48px,15vw,68px)}.hero-side{padding-left:28px}.section{padding:76px 0}.section-head{grid-template-columns:1fr;gap:15px;margin-bottom:42px}.case-body{grid-template-columns:1fr;gap:24px}.outcome{padding:20px 0 0;border-left:0;border-top:1px solid #375148}.role{grid-template-columns:1fr;gap:8px}.edu-grid,.skills,.contact-inner{grid-template-columns:1fr}.contact-links{margin-top:10px}footer .wrap{flex-direction:column}.case{gap:20px}.cases:before{left:25px}.case-no{width:51px;height:51px}.case{grid-template-columns:51px 1fr}.case h3{font-size:27px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
-    @media print{.site-header,.actions,.contact{display:none}.hero{min-height:auto}.dark{background:white;color:black}.dark .case p,.dark .case li{color:#333}.case-no{background:white;color:black}.section{padding:30px 0}}
+    :root{
+      --canvas:#fbf6ec;         /* 米白 */
+      --canvas-warm:#f4ead6;    /* 暖米色 */
+      --ink:#1d2b33;            /* 深墨蓝 */
+      --ink-soft:#3a4d57;
+      --muted:#6c7a83;
+      --line:#e0d4bf;
+      --line-strong:#c9b48f;
+      --gold:#c98a1b;           /* 姜黄 */
+      --gold-soft:#f0d59b;
+      --peacock:#0f5f79;        /* 孔雀蓝 */
+      --peacock-dk:#0a3d4e;
+      --clay:#b3532a;
+      --white:#fff;
+      --serif:"Cormorant Garamond","Songti SC","Noto Serif SC",Georgia,serif;
+      --sans:"Inter","PingFang SC","Microsoft YaHei",sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      --max:1240px;
+      --radius:2px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--canvas);color:var(--ink);font-family:var(--sans);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit}
+    button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+    :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .skip{position:fixed;left:16px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 14px}.skip:focus{top:12px}
+    .wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+
+    /* nav */
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+    .site-header.scrolled{background:rgba(251,246,236,.94);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 1px 0 rgba(0,0,0,.03)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;color:#fff;transition:color .3s}
+    .site-header.scrolled .nav{color:var(--ink)}
+    .brand{font-family:var(--serif);font-size:26px;text-decoration:none;letter-spacing:.02em;font-weight:500;display:flex;align-items:center;gap:8px}
+    .brand-mark{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--white);display:grid;place-items:center;font-size:16px;font-family:var(--serif);font-weight:600}
+    .nav-links{display:flex;align-items:center;gap:34px}
+    .nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-decoration:none;text-transform:uppercase;position:relative;padding:6px 0}
+    .nav-links a:hover{color:var(--gold-soft)}
+    .site-header.scrolled .nav-links a:hover{color:var(--gold)}
+    .nav-cta{border:1px solid currentColor;padding:8px 14px!important;letter-spacing:.1em!important}
+    .menu{display:none;padding:8px}.menu span{display:block;width:24px;height:1.5px;background:currentColor;margin:5px 0;transition:transform .3s}
+
+    /* HERO */
+    .hero{position:relative;min-height:100vh;color:#fff;overflow:hidden;background:var(--peacock-dk)}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.68) saturate(1.05)}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,61,78,.35) 0%,rgba(10,61,78,.15) 45%,rgba(10,61,78,.85) 100%),linear-gradient(90deg,rgba(10,61,78,.55) 0%,rgba(10,61,78,0) 55%)}
+    .hero-inner{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:8fr 4fr;gap:60px;align-items:end;padding:120px 0 90px}
+    .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);display:flex;align-items:center;gap:14px;margin-bottom:26px}
+    .hero-eyebrow::before{content:"";width:44px;height:1px;background:var(--gold-soft)}
+    .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(60px,9vw,132px);line-height:.95;letter-spacing:-.02em;margin-bottom:28px;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+    .hero h1 em{font-style:italic;color:var(--gold-soft);font-weight:400}
+    .hero-lead{font-size:clamp(17px,1.6vw,20px);max-width:640px;line-height:1.75;color:#e8ecef;margin-bottom:38px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:14px 22px;font-weight:600;font-size:14px;letter-spacing:.03em;border:1px solid;transition:transform .2s,background .2s,color .2s;font-family:var(--sans)}
+    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .btn.primary:hover{background:#a97012;border-color:#a97012}
+    .btn.ghost{border-color:#fff;color:#fff}
+    .btn.ghost:hover{background:#fff;color:var(--ink)}
+    .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .btn.dark:hover{background:var(--peacock-dk);border-color:var(--peacock-dk)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .hero-card{background:rgba(251,246,236,.94);color:var(--ink);padding:32px 30px;border-left:4px solid var(--gold);backdrop-filter:blur(14px);position:relative}
+    .hero-card::before{content:"";position:absolute;top:-14px;right:22px;padding:5px 12px;background:var(--peacock);color:#fff;font:11px var(--mono);letter-spacing:.14em;content:"HELLO ✿"}
+    .hero-card h2{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:14px;line-height:1.25}
+    .id-list{list-style:none;font-size:13.5px;color:var(--ink-soft);line-height:2}
+    .id-list li{display:flex;gap:10px;border-bottom:1px dashed var(--line);padding:6px 0}
+    .id-list li:last-child{border-bottom:0}
+    .id-list b{color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.1em;min-width:78px;text-transform:uppercase;padding-top:5px}
+    .id-list span{flex:1;color:var(--ink)}
+
+    .hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.7);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .hero-scroll::after{content:"";width:1px;height:36px;background:linear-gradient(180deg,rgba(255,255,255,.7),transparent);animation:drop 1.8s ease-in-out infinite}
+    @keyframes drop{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+    /* strip */
+    .strip{background:var(--gold);color:var(--ink);padding:14px 0;overflow:hidden}
+    .strip-inner{display:flex;gap:60px;font:14px var(--serif);font-style:italic;white-space:nowrap;animation:marquee 40s linear infinite;letter-spacing:.02em}
+    .strip-inner span{display:inline-flex;align-items:center;gap:16px}
+    .strip-inner i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* sections */
+    .section{padding:120px 0}
+    .section-head{display:grid;grid-template-columns:5fr 7fr;gap:60px;margin-bottom:70px;align-items:end}
+    .section-head .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+    .section-head h2{font-family:var(--serif);font-size:clamp(44px,5.5vw,74px);font-weight:500;line-height:1;letter-spacing:-.02em}
+    .section-head h2 em{font-style:italic;color:var(--peacock);font-weight:400}
+    .section-head p{max-width:520px;font-size:17px;color:var(--muted)}
+
+    /* work */
+    .work{background:var(--peacock-dk);color:#eef4f0}
+    .work .section-head h2{color:#fff}
+    .work .section-head h2 em{color:var(--gold-soft)}
+    .work .section-head p{color:#bdc9d1}
+    .work .kicker{color:var(--gold-soft)}
+    .cases{display:grid;gap:24px}
+    .case{display:grid;grid-template-columns:88px 1fr;gap:34px;background:rgba(255,255,255,.04);padding:36px;border:1px solid rgba(255,255,255,.08);transition:background .3s,border-color .3s}
+    .case:hover{background:rgba(255,255,255,.07);border-color:var(--gold-soft)}
+    .case-no{font-family:var(--serif);font-size:56px;color:var(--gold-soft);font-style:italic;line-height:1}
+    .case-body{display:grid;grid-template-columns:6fr 4fr;gap:44px}
+    .case-tag{display:inline-block;font:11px var(--mono);letter-spacing:.16em;color:var(--gold-soft);text-transform:uppercase;margin-bottom:14px}
+    .case h3{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.2;margin-bottom:14px}
+    .case p{color:#c4cfd5;font-size:15.5px}
+    .case ul{list-style:none;border-left:1px solid rgba(255,255,255,.15);padding-left:24px}
+    .case ul strong{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:#fff;margin-bottom:12px;font-style:italic}
+    .case ul li{margin-bottom:8px;color:#bdc9d1;font-size:14px;position:relative;padding-left:16px}
+    .case ul li::before{content:"◇";position:absolute;left:0;color:var(--gold-soft);font-size:10px}
+
+    /* experience */
+    .timeline-wrap{position:relative}
+    .timeline-wrap::before{content:"";position:absolute;left:180px;top:20px;bottom:20px;width:1px;background:var(--line-strong)}
+    .role{display:grid;grid-template-columns:160px 1fr;gap:60px;padding:28px 0;position:relative}
+    .role::before{content:"";position:absolute;left:176px;top:38px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--canvas)}
+    .role time{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;padding-top:4px}
+    .role-body{border-bottom:1px solid var(--line);padding-bottom:24px}
+    .role:last-child .role-body{border-bottom:0}
+    .role .company{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+    .role h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:10px}
+    .role p{color:var(--muted);max-width:680px}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:80px;padding-left:220px}
+    .edu{padding:24px;background:var(--canvas-warm);border-left:3px solid var(--peacock)}
+    .edu .meta{font:11px var(--mono);color:var(--peacock);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+    .edu h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:6px}
+    .edu p{color:var(--muted);font-size:14px}
+
+    /* capabilities */
+    .cap-wrap{background:var(--canvas-warm);padding:120px 0}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
+    .skill{background:var(--canvas);padding:38px 32px;border-top:3px solid var(--peacock);position:relative;transition:transform .3s,box-shadow .3s}
+    .skill:nth-child(2){border-top-color:var(--gold)}
+    .skill:nth-child(3){border-top-color:var(--clay)}
+    .skill:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(15,95,121,.2)}
+    .skill .num{font:11px var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+    .skill h3{font-family:var(--serif);font-size:26px;font-weight:500;margin:16px 0 12px}
+    .skill p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+
+    /* life section */
+    .life{padding:130px 0 140px;background:var(--canvas);border-top:1px solid var(--line);position:relative;overflow:hidden}
+    .life::before{content:"OFF THE CLOCK";position:absolute;top:60px;right:-40px;font-family:var(--serif);font-size:210px;color:var(--gold-soft);opacity:.15;font-style:italic;letter-spacing:-.02em;pointer-events:none}
+    .life-tabs{display:inline-flex;background:var(--canvas-warm);padding:5px;border:1px solid var(--line);margin:-20px 0 40px;position:relative;z-index:2}
+    .life-tabs button{padding:11px 24px;font:12px var(--mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase;transition:all .25s}
+    .life-tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+    .life-panel{display:none}
+    .life-panel.active{display:block}
+    .life-intro{font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--ink-soft);font-style:italic;max-width:640px;margin-bottom:36px}
+
+    /* photography gallery — asymmetric mosaic */
+    .g-photo{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:100px;gap:14px}
+    .g-photo figure{position:relative;overflow:hidden;background:var(--peacock-dk);margin:0}
+    .g-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;filter:saturate(1.03)}
+    .g-photo figure:hover img{transform:scale(1.05)}
+    .g-photo figcaption{position:absolute;left:14px;bottom:12px;font:11px var(--mono);letter-spacing:.1em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.7);opacity:0;transform:translateY(6px);transition:.3s}
+    .g-photo figure:hover figcaption,.g-photo figure:focus-within figcaption{opacity:1;transform:none}
+    .g-photo figure:nth-child(1){grid-column:span 5;grid-row:span 5}
+    .g-photo figure:nth-child(2){grid-column:span 4;grid-row:span 3}
+    .g-photo figure:nth-child(3){grid-column:span 3;grid-row:span 3}
+    .g-photo figure:nth-child(4){grid-column:span 4;grid-row:span 2}
+    .g-photo figure:nth-child(5){grid-column:span 3;grid-row:span 2}
+    .g-photo figure:nth-child(6){grid-column:span 3;grid-row:span 3}
+    .g-photo figure:nth-child(7){grid-column:span 4;grid-row:span 3}
+    .g-photo figure:nth-child(8){grid-column:span 5;grid-row:span 3}
+    .g-photo figure:nth-child(9){grid-column:span 3;grid-row:span 3}
+    .g-photo figure:nth-child(10){grid-column:span 4;grid-row:span 3}
+    .g-photo figure:nth-child(11){grid-column:span 5;grid-row:span 3}
+
+    /* food magazine layout */
+    .food-lead{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;margin-bottom:26px;grid-auto-rows:280px}
+    .food-lead figure{position:relative;overflow:hidden;background:var(--peacock-dk);margin:0;grid-row:span 2}
+    .food-lead figure:nth-child(2){grid-row:span 1}
+    .food-lead figure:nth-child(3){grid-row:span 1}
+    .food-lead img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .food-lead figure:hover img{transform:scale(1.05)}
+    .food-lead .food-cover{position:absolute;left:24px;bottom:24px;right:24px;color:#fff}
+    .food-lead .food-cover em{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold-soft);margin-bottom:6px;text-transform:uppercase;font-style:normal}
+    .food-lead .food-cover strong{font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.25;display:block;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+    .food-lead figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%);pointer-events:none}
+
+    .food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .food-grid figure{aspect-ratio:1/1;overflow:hidden;position:relative;margin:0;background:var(--peacock-dk)}
+    .food-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .food-grid figure:hover img{transform:scale(1.06)}
+    .food-grid figcaption{position:absolute;inset:auto 0 0 0;padding:10px 12px;color:#fff;font:11px var(--mono);letter-spacing:.08em;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));opacity:0;transition:.3s}
+    .food-grid figure:hover figcaption{opacity:1}
+
+    /* life facts */
+    .life-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;padding-top:44px;border-top:1px solid var(--line)}
+    .life-facts div b{display:block;font:11px var(--mono);letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+    .life-facts div span{font-family:var(--serif);font-size:22px;color:var(--ink);line-height:1.4;font-style:italic}
+
+    /* contact */
+    .contact{background:var(--peacock);color:#fff;padding:130px 0 100px;position:relative;overflow:hidden}
+    .contact::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(240,213,155,.2) 0%,transparent 70%)}
+    .contact-inner{display:grid;grid-template-columns:7fr 5fr;gap:60px;align-items:end;position:relative;z-index:2}
+    .contact .kicker{color:var(--gold-soft);font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:16px;display:block}
+    .contact h2{font-family:var(--serif);font-size:clamp(52px,7vw,92px);font-weight:500;line-height:1;letter-spacing:-.02em;margin-bottom:26px}
+    .contact h2 em{font-style:italic;color:var(--gold-soft)}
+    .contact p{max-width:540px;color:#c4d5db;font-size:17px;margin-bottom:30px}
+    .contact-links{display:flex;flex-direction:column;gap:12px}
+    .contact-links a{background:rgba(255,255,255,.08);padding:20px 22px;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;gap:4px;transition:.3s}
+    .contact-links a:hover{background:var(--gold);border-color:var(--gold)}
+    .contact-links b{font:11px var(--mono);letter-spacing:.14em;color:var(--gold-soft);text-transform:uppercase;font-weight:400}
+    .contact-links a:hover b{color:#fff}
+    .contact-links a span{font-family:var(--serif);font-size:20px}
+
+    footer{background:var(--ink);color:rgba(255,255,255,.55);padding:32px 0;font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+    footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    /* reveal */
+    .reveal{opacity:1;transform:none}
+    .motion-ready .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .motion-ready .reveal.visible{opacity:1;transform:none}
+
+    /* responsive */
+    @media(max-width:960px){
+      .hero-inner{grid-template-columns:1fr;gap:36px;padding:110px 0 90px}
+      .hero-card{align-self:start}
+      .section-head{grid-template-columns:1fr;gap:20px;margin-bottom:44px}
+      .cases{gap:16px}
+      .case{grid-template-columns:1fr;gap:14px;padding:26px}
+      .case-body{grid-template-columns:1fr;gap:20px}
+      .case ul{border-left:0;border-top:1px solid rgba(255,255,255,.15);padding-left:0;padding-top:18px}
+      .timeline-wrap::before{left:0}
+      .role{grid-template-columns:1fr;gap:8px;padding-left:22px}
+      .role::before{left:-4px;top:14px}
+      .edu-grid{grid-template-columns:1fr;padding-left:22px}
+      .skills{grid-template-columns:1fr}
+      .food-lead{grid-template-columns:1fr;grid-auto-rows:240px}
+      .food-lead figure,.food-lead figure:nth-child(2),.food-lead figure:nth-child(3){grid-row:span 1}
+      .food-grid{grid-template-columns:repeat(2,1fr)}
+      .life-facts{grid-template-columns:repeat(2,1fr)}
+      .contact-inner{grid-template-columns:1fr}
+      .g-photo{grid-auto-rows:88px;gap:8px}
+      .g-photo figure{grid-column:span 6!important;grid-row:span 2!important}
+      .g-photo figure:nth-child(1){grid-column:span 12!important;grid-row:span 3!important}
+      .g-photo figcaption{opacity:1;transform:none}
+      .menu{display:block}
+      .nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:var(--canvas);border:1px solid var(--line);padding:22px;flex-direction:column;align-items:stretch;gap:2px;color:var(--ink)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:14px}
+      .section,.cap-wrap,.life,.contact{padding:80px 0}
+      .life::before{font-size:110px;top:40px}
+      footer .wrap{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none;transition:none}
+      .strip-inner{animation:none}
+      .hero-scroll::after{animation:none}
+      .btn:hover{transform:none}
+    }
+    @media print{
+      .site-header,.hero-scroll,.hero-actions,.contact,.strip{display:none}
+      .hero{min-height:auto;background:#fff;color:#000}
+      .hero-bg{display:none}
+    }
   </style>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要内容</a>
-<header class="site-header" id="header"><nav class="nav wrap" aria-label="主导航"><a class="brand" href="#top">馨丹<span>.</span></a><button class="menu" aria-label="打开导航菜单" aria-expanded="false"><span></span><span></span></button><div class="nav-links"><a href="#work">代表工作</a><a href="#experience">经历</a><a href="#capabilities">能力</a><a href="mailto:zhang_xin_dan@163.com" class="nav-cta">联系我</a></div></nav></header>
+
+<header class="site-header" id="header"><nav class="wrap nav" aria-label="主导航">
+  <a class="brand" href="#top"><span class="brand-mark">馨</span> zhang xindan</a>
+  <button class="menu" aria-label="打开导航菜单" aria-expanded="false"><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="#work">代表工作</a>
+    <a href="#experience">经历</a>
+    <a href="#capabilities">能力</a>
+    <a href="#life">生活</a>
+    <a href="mailto:zhang_xin_dan@163.com" class="nav-cta">联系我</a>
+  </div>
+</nav></header>
+
 <main id="main">
-  <section class="hero wrap" id="top">
-    <div><div class="eyebrow">AI Product Manager · 2027</div><h1>把复杂系统，<br>变成<em>可用产品</em>。</h1><p class="lead">你好，我是张馨丹。我的工作落在 AI、用户体验与数据分析的交叉处：理解 Agent 如何运行，也持续追问用户是否真正理解、信任并愿意使用它。</p><div class="actions"><a class="btn primary" href="#work">查看代表工作 <span aria-hidden="true">↓</span></a><a class="btn" href="./张馨丹_产品简历.pdf" download>下载简历 <span aria-hidden="true">↗</span></a></div></div>
-    <aside class="hero-side" aria-label="产品方法"><div class="kicker">How I build</div><h2>从问题到机制，<br>再到真实交付。</h2><ol class="principles"><li><b>01</b><span>从用户反馈、行为数据与业务场景中识别真问题。</span></li><li><b>02</b><span>把复杂技术约束转译为清晰、可控的人机协作机制。</span></li><li><b>03</b><span>用验收、指标与反馈闭环推动产品持续变好。</span></li></ol></aside>
+  <section class="hero" id="top">
+    <div class="hero-bg"><img src="assets/photos/portrait/hero-window.jpg" alt="张馨丹站在咖啡店窗边"></div>
+    <div class="hero-inner wrap">
+      <div>
+        <div class="hero-eyebrow">AI Product Manager · Class of 2027</div>
+        <h1>把复杂系统，<br>变成 <em>可用产品</em>。</h1>
+        <p class="hero-lead">你好，我是张馨丹。土生土长的东北人，一个愿意为一锅炖菜等三小时的金牛座 PM。工作里我关心 Agent 如何运行、用户是否理解并信任它；下班后我更愿意在路上、在厨房里，把日子过得踏实。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">看看代表工作 <span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="./张馨丹_产品简历.pdf" download>下载简历 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>关于我，<br><i style="font-style:italic;color:var(--peacock)">简短版本</i></h2>
+        <ul class="id-list">
+          <li><b>Origin</b><span>东北 · 一路向南</span></li>
+          <li><b>Zodiac</b><span>金牛座 · 稳但爱吃</span></li>
+          <li><b>MBTI</b><span>在 ENFJ 与 ESFJ 间反复横跳</span></li>
+          <li><b>Palette</b><span>姜黄 / 米白 / 孔雀蓝</span></li>
+          <li><b>Fuel</b><span>咖啡、家常菜、朋友</span></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">SCROLL</div>
   </section>
 
-  <section class="section dark" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">Selected work</div><h2>代表工作</h2></div><p>围绕公司级 AI 办公产品 Hi-work，我参与 Super Agent 核心链路建设，并独立负责交互、安全与体验优化方向的需求设计。</p></div><div class="cases">
-    <article class="case reveal"><div class="case-no">01</div><div class="case-body"><div><span class="tag">HUMAN–AGENT INTERACTION</span><h3>让 Agent 在关键时刻，正确地向人提问</h3><p>针对纯文本确认成本高、多轮沟通效率低的问题，负责 AskUserInput 交互卡片：从真实任务抽象单选、多选、排序和自定义输入范式，并结合 Agent loop 生命周期、跨端与会话同步约束，推动方案收敛为消息流卡片与结构化信息回传。</p></div><aside class="outcome"><strong>把“聊天控件”设计成 Agent 能力</strong><ul><li>独立完成 PRD 与交互 Demo</li><li>多轮跨产品、设计、研发对齐</li><li>覆盖状态、版本与异常路径</li></ul></aside></div></article>
-    <article class="case reveal"><div class="case-no">02</div><div class="case-body"><div><span class="tag">TRUST & SAFETY</span><h3>给 Agent 的自主执行，建立清晰边界</h3><p>针对 Agent 调用工具产生的外发、不可逆及敏感操作，设计基于“tool 调用 + 执行参数”的操作确认机制；从信任边界、可逆性、影响范围和敏感度四个维度建立风险分级，并形成“工程规则 + 智能兜底”的判定策略。</p></div><aside class="outcome"><strong>在效率与可控之间做产品取舍</strong><ul><li>构建风险分级与审批矩阵</li><li>覆盖预置及开放能力场景</li><li>让确认发生在真正必要的节点</li></ul></aside></div></article>
-    <article class="case reveal"><div class="case-no">03</div><div class="case-body"><div><span class="tag">EXPERIENCE LOOP</span><h3>从上线验收到持续优化，建立体验闭环</h3><p>围绕“有用、好用、可信”的目标，结合用户反馈、NPS 问卷、线上 case 与竞品研究定位关键问题，推进长内容输入、产物预览等专项优化；搭建多端、多产物类型的验收框架，形成问题分级与迭代优先级。</p></div><aside class="outcome"><strong>不只交付功能，也验证体验</strong><ul><li>覆盖 PC、iOS、Android</li><li>兼顾输入、执行与产物交付链路</li><li>以优先级驱动全量后优化</li></ul></aside></div></article>
-  </div></div></section>
+  <div class="strip" aria-hidden="true"><div class="strip-inner">
+    <span>PRODUCT<i>01</i></span><span>AGENTS<i>02</i></span><span>DATA<i>03</i></span><span>DESIGN JUDGMENT<i>04</i></span><span>USER TRUST<i>05</i></span><span>OFF THE CLOCK<i>06</i></span>
+    <span>PRODUCT<i>01</i></span><span>AGENTS<i>02</i></span><span>DATA<i>03</i></span><span>DESIGN JUDGMENT<i>04</i></span><span>USER TRUST<i>05</i></span><span>OFF THE CLOCK<i>06</i></span>
+  </div></div>
 
-  <section class="section" id="experience"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">Experience</div><h2>经历路径</h2></div><p>从数据分析与算法产品化出发，逐步走向复杂平台和 AI Agent 产品。这些经历共同塑造了我：既关心机制是否成立，也关心产品是否真正被使用。</p></div><div class="timeline">
-    <article class="role reveal"><time>2026.05 — 至今</time><div><div class="company">小红书 · 企业智能部</div><h3>AI 产品经理</h3></div><p>参与公司级 AI 办公产品 Hi-work 建设，覆盖 Agent 输出、信息溯源、产物交付、Human-in-the-Loop、安全确认与体验优化。</p></article>
-    <article class="role reveal"><time>2026.01 — 2026.04</time><div><div class="company">百度 · 内容产品部</div><h3>产品经理</h3></div><p>负责百家号运营平台多模块迭代，推动 10+ 需求上线；结合竞品、问卷与行为数据辅助季度规划，并搭建平台专属 AI 客服。</p></article>
-    <article class="role reveal"><time>2024.10 — 2025.01</time><div><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3></div><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></article>
-    <article class="role reveal"><time>2023.10 — 2026.12</time><div><div class="company">作业帮 · 线上业务中心</div><h3>运营实习生</h3></div><p>以漏斗与归因分析定位新人培训、留存问题，协助重构流程与运营策略，推动结训通过率环比提升约 5pp。</p></article>
-  </div><div class="edu-grid"><article class="edu reveal"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article><article class="edu reveal"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article></div></div></section>
+  <section class="work section" id="work"><div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="kicker">Selected work</span><h2>代表<em>工作</em></h2></div>
+      <p>围绕公司级 AI 办公产品 Hi-work，我参与 Super Agent 核心链路建设，并独立负责交互、安全与体验优化方向的需求设计。</p>
+    </div>
+    <div class="cases">
+      <article class="case reveal"><div class="case-no">01</div><div class="case-body">
+        <div>
+          <span class="case-tag">Human–Agent Interaction</span>
+          <h3>让 Agent 在关键时刻，正确地向人提问</h3>
+          <p>针对纯文本确认成本高、多轮沟通效率低的问题，负责 AskUserInput 交互卡片：从真实任务抽象单选、多选、排序和自定义输入范式，并结合 Agent loop 生命周期、跨端与会话同步约束，推动方案收敛为消息流卡片与结构化信息回传。</p>
+        </div>
+        <ul><strong>把"聊天控件"设计成 Agent 能力</strong>
+          <li>独立完成 PRD 与交互 Demo</li>
+          <li>多轮跨产品、设计、研发对齐</li>
+          <li>覆盖状态、版本与异常路径</li>
+        </ul>
+      </div></article>
+      <article class="case reveal"><div class="case-no">02</div><div class="case-body">
+        <div>
+          <span class="case-tag">Trust &amp; Safety</span>
+          <h3>给 Agent 的自主执行，建立清晰边界</h3>
+          <p>针对 Agent 调用工具产生的外发、不可逆及敏感操作，设计基于"tool 调用 + 执行参数"的操作确认机制；从信任边界、可逆性、影响范围和敏感度四个维度建立风险分级，并形成"工程规则 + 智能兜底"的判定策略。</p>
+        </div>
+        <ul><strong>在效率与可控之间做产品取舍</strong>
+          <li>构建风险分级与审批矩阵</li>
+          <li>覆盖预置及开放能力场景</li>
+          <li>让确认发生在真正必要的节点</li>
+        </ul>
+      </div></article>
+      <article class="case reveal"><div class="case-no">03</div><div class="case-body">
+        <div>
+          <span class="case-tag">Experience Loop</span>
+          <h3>从上线验收到持续优化，建立体验闭环</h3>
+          <p>围绕"有用、好用、可信"的目标，结合用户反馈、NPS 问卷、线上 case 与竞品研究定位关键问题，推进长内容输入、产物预览等专项优化；搭建多端、多产物类型的验收框架，形成问题分级与迭代优先级。</p>
+        </div>
+        <ul><strong>不只交付功能，也验证体验</strong>
+          <li>覆盖 PC、iOS、Android</li>
+          <li>兼顾输入、执行与产物交付链路</li>
+          <li>以优先级驱动全量后优化</li>
+        </ul>
+      </div></article>
+    </div>
+  </div></section>
 
-  <section class="section" id="capabilities"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">Capabilities</div><h2>能力组合</h2></div><p>我的优势不是单点技能，而是能在用户、业务与技术之间完成翻译，并把判断落成可执行方案。</p></div><div class="skills"><article class="skill reveal"><span class="num">01 / PRODUCT</span><h3>产品定义与交付</h3><p>需求分析、用户研究、竞品分析、PRD、原型与 Demo、跨团队评审、研发协同、验收上线。</p></article><article class="skill reveal"><span class="num">02 / AI & DATA</span><h3>AI 与数据理解</h3><p>Agent / Skill / Tool 机制、Python、SQL、机器学习、强化学习、PyTorch，以及数据分析与决策。</p></article><article class="skill reveal"><span class="num">03 / SYSTEMS</span><h3>复杂系统转译</h3><p>将模型、权限、状态、异常与跨端约束转化为用户可理解、团队可实施的产品机制。</p></article></div></div></section>
+  <section class="section" id="experience"><div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="kicker">Experience</span><h2>经历<em>路径</em></h2></div>
+      <p>从数据分析与算法产品化出发，逐步走向复杂平台和 AI Agent 产品。这些经历共同塑造了我：既关心机制是否成立，也关心产品是否真正被使用。</p>
+    </div>
+    <div class="timeline-wrap">
+      <article class="role reveal"><time>2026.05 — 至今</time><div class="role-body"><div class="company">小红书 · 企业智能部</div><h3>AI 产品经理</h3><p>参与公司级 AI 办公产品 Hi-work 建设，覆盖 Agent 输出、信息溯源、产物交付、Human-in-the-Loop、安全确认与体验优化。</p></div></article>
+      <article class="role reveal"><time>2026.01 — 2026.04</time><div class="role-body"><div class="company">百度 · 内容产品部</div><h3>产品经理</h3><p>负责百家号运营平台多模块迭代，推动 10+ 需求上线；结合竞品、问卷与行为数据辅助季度规划，并搭建平台专属 AI 客服。</p></div></article>
+      <article class="role reveal"><time>2024.10 — 2025.01</time><div class="role-body"><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></div></article>
+      <article class="role reveal"><time>2023.10 — 2026.12</time><div class="role-body"><div class="company">作业帮 · 线上业务中心</div><h3>运营实习生</h3><p>以漏斗与归因分析定位新人培训、留存问题，协助重构流程与运营策略，推动结训通过率环比提升约 5pp。</p></div></article>
+    </div>
+    <div class="edu-grid">
+      <article class="edu reveal"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article>
+      <article class="edu reveal"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article>
+    </div>
+  </div></section>
 
-  <section class="contact" id="contact"><div class="wrap contact-inner reveal"><div><div class="kicker">Let’s talk</div><h2>期待一起做出<br>真正被信任的 AI 产品。</h2><p>我正在寻找 2027 届产品经理 / AI 产品经理机会。如果你对我的经历或项目感兴趣，欢迎通过邮件联系。</p></div><div class="contact-links"><a href="mailto:zhang_xin_dan@163.com"><span class="meta">Email</span><br>zhang_xin_dan@163.com</a><a href="./张馨丹_产品简历.pdf" download><span class="meta">Resume</span><br>下载 PDF 简历 ↗</a></div></div></section>
+  <div class="cap-wrap" id="capabilities"><div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="kicker">Capabilities</span><h2>能力<em>组合</em></h2></div>
+      <p>我的优势不是单点技能，而是能在用户、业务与技术之间完成翻译，并把判断落成可执行方案。</p>
+    </div>
+    <div class="skills">
+      <article class="skill reveal"><span class="num">01 / Product</span><h3>产品定义与交付</h3><p>需求分析、用户研究、竞品分析、PRD、原型与 Demo、跨团队评审、研发协同、验收上线。</p></article>
+      <article class="skill reveal"><span class="num">02 / AI &amp; Data</span><h3>AI 与数据理解</h3><p>Agent / Skill / Tool 机制、Python、SQL、机器学习、强化学习、PyTorch，以及数据分析与决策。</p></article>
+      <article class="skill reveal"><span class="num">03 / Systems</span><h3>复杂系统转译</h3><p>将模型、权限、状态、异常与跨端约束转化为用户可理解、团队可实施的产品机制。</p></article>
+    </div>
+  </div></div>
+
+  <section class="life" id="life"><div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="kicker">Off the clock</span><h2>下班<em>以后</em></h2></div>
+      <p>不做产品的时候，我通常在路上，或在厨房里。这里是一些片段——山川、街道、灯火，以及一桌桌被认真对待的饭菜。</p>
+    </div>
+
+    <div class="life-tabs reveal" role="tablist" aria-label="生活专栏切换">
+      <button role="tab" id="tab-photo" aria-selected="true" aria-controls="panel-photo">01 · 路上所见</button>
+      <button role="tab" id="tab-food" aria-selected="false" aria-controls="panel-food">02 · 一日三餐</button>
+    </div>
+
+    <div class="life-panel active reveal" id="panel-photo" role="tabpanel" aria-labelledby="tab-photo">
+      <p class="life-intro">"相机是我随身的笔记本。有些地方值得慢下来看第二眼，那就按一下快门，让它先留在这里。"</p>
+      <div class="g-photo">
+        <figure><img src="assets/photos/photography/travel-village.jpg" alt="夜色中依山而建的古村落，木质建筑亮起层层灯光" loading="lazy"><figcaption>Village at dusk</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-tulip.jpg" alt="春日里红砖墙前盛开的郁金香花海" loading="lazy"><figcaption>Tulips in bloom</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-cottage.jpg" alt="蓝天白云下山坡上的白色小屋" loading="lazy"><figcaption>Small house, big sky</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-sunset.jpg" alt="橙红色夕阳落在海面，远处城市剪影" loading="lazy"><figcaption>Golden hour</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-autumn.jpg" alt="秋色红叶前眺望远处雾中城市" loading="lazy"><figcaption>Autumn overlook</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-waterfall.jpg" alt="森林中弧形堤坝形成的绿色瀑布" loading="lazy"><figcaption>Emerald cascade</figcaption></figure>
+        <figure><img src="assets/photos/photography/city-hongyadong.jpg" alt="灯火通明的红色跨江大桥与吊脚楼群夜景" loading="lazy"><figcaption>City on the river</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-morning.jpg" alt="金色晨光穿过枯枝，河面上的橡皮艇剪影" loading="lazy"><figcaption>First light</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-firework.jpg" alt="夜空中绽放的金红色烟花" loading="lazy"><figcaption>Sparks in the night</figcaption></figure>
+        <figure><img src="assets/photos/photography/city-bridge.jpg" alt="夕阳粉橙天空下的跨海大桥车流" loading="lazy"><figcaption>Bridge home</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-boat.jpg" alt="碧绿水面旁停泊的小船，画面静谧" loading="lazy"><figcaption>Still water</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="life-panel reveal" id="panel-food" role="tabpanel" aria-labelledby="tab-food" hidden>
+      <p class="life-intro">"好好吃饭是我给日子做的第一件事。周末的时候，一顿家常菜足够把一周的疲惫翻过去。"</p>
+
+      <div class="food-lead">
+        <figure><img src="assets/photos/food/food-brisket.jpg" alt="番茄土豆炖牛腩家常一桌" loading="lazy"><div class="food-cover"><em>THIS WEEK'S SPECIAL</em><strong>番茄土豆炖牛腩<br>一锅慢慢等出来的踏实</strong></div></figure>
+        <figure><img src="assets/photos/food/food-wine.jpg" alt="蘑菇炒鸡与白葡萄酒" loading="lazy"><div class="food-cover"><em>WEEKNIGHT</em><strong>周中晚饭 · 一瓶白葡萄酒</strong></div></figure>
+        <figure><img src="assets/photos/food/food-drinks.jpg" alt="调制饮品、松露薯片和荔枝的夜宵" loading="lazy"><div class="food-cover"><em>LATE NIGHT</em><strong>夜宵调酒配薯片</strong></div></figure>
+      </div>
+
+      <div class="food-grid">
+        <figure><img src="assets/photos/food/food-crayfish.jpg" alt="麻辣小龙虾和拌面" loading="lazy"><figcaption>Crayfish night</figcaption></figure>
+        <figure><img src="assets/photos/food/food-oyster.jpg" alt="生蚝鸡肉煲" loading="lazy"><figcaption>Oysters at home</figcaption></figure>
+        <figure><img src="assets/photos/food/food-clay.jpg" alt="砂锅茄子煲、酸汤鱼片" loading="lazy"><figcaption>Clay pot, weeknight</figcaption></figure>
+        <figure><img src="assets/photos/food/food-vintage.jpg" alt="胶片质感的沙葱炒蛋和红烧肉" loading="lazy"><figcaption>On film</figcaption></figure>
+        <figure><img src="assets/photos/food/food-soup.jpg" alt="萝卜羊肉汤和蒜苔炒鸡蛋" loading="lazy"><figcaption>Comfort bowl</figcaption></figure>
+        <figure><img src="assets/photos/food/food-dumplings.jpg" alt="三盘水饺和蒜泥醋" loading="lazy"><figcaption>Dumpling day</figcaption></figure>
+        <figure><img src="assets/photos/food/food-braise.jpg" alt="家常小炒一桌" loading="lazy"><figcaption>Everyday spread</figcaption></figure>
+        <figure><img src="assets/photos/food/food-yam.jpg" alt="山药炒牛肉与紫米饭" loading="lazy"><figcaption>Yam & beef</figcaption></figure>
+        <figure><img src="assets/photos/food/food-fish.jpg" alt="砂锅鱼与可乐鸡翅" loading="lazy"><figcaption>Fish pot</figcaption></figure>
+        <figure><img src="assets/photos/food/food-yam2.jpg" alt="口蘑虾仁与山药炒牛肉" loading="lazy"><figcaption>Shrimp mushrooms</figcaption></figure>
+        <figure><img src="assets/photos/food/food-homecook.jpg" alt="家常菜一桌" loading="lazy"><figcaption>Home style</figcaption></figure>
+        <figure><img src="assets/photos/food/food-simmer.jpg" alt="炖菜特写" loading="lazy"><figcaption>Slow simmer</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="life-facts reveal" aria-label="兴趣自述">
+      <div><b>Currently into</b><span>群像瞬间与街头灯火</span></div>
+      <div><b>On the road</b><span>近一次是北方的冬江与暖橘晚霞</span></div>
+      <div><b>At the table</b><span>愿意为一锅炖菜等三小时</span></div>
+      <div><b>Off screen</b><span>和朋友们的散步、深夜聊天</span></div>
+    </div>
+  </div></section>
+
+  <section class="contact" id="contact"><div class="wrap contact-inner reveal">
+    <div>
+      <span class="kicker">Let's talk</span>
+      <h2>期待一起做出<br>真正被<em>信任</em>的<br>AI 产品。</h2>
+      <p>我正在寻找 2027 届产品经理 / AI 产品经理机会。如果你对我的经历或项目感兴趣，欢迎通过邮件联系。</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:zhang_xin_dan@163.com"><b>Email</b><span>zhang_xin_dan@163.com</span></a>
+      <a href="./张馨丹_产品简历.pdf" download><b>Resume</b><span>下载 PDF 简历 ↗</span></a>
+    </div>
+  </div></section>
 </main>
-<footer><div class="wrap"><span>© <span id="year"></span> 张馨丹</span><span>Designed for clarity, built for trust.</span></div></footer>
+
+<footer><div class="wrap">
+  <span>© <span id="year"></span> 张馨丹 · 东北 → 南京 → 成都 → 北京</span>
+  <span>Designed for clarity, built for trust.</span>
+</div></footer>
+
 <script>
   document.documentElement.classList.add('motion-ready');
   const header=document.querySelector('#header'),menu=document.querySelector('.menu'),links=document.querySelector('.nav-links');
-  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8),{passive:true});
-  menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.setAttribute('aria-label',open?'关闭导航菜单':'打开导航菜单')});
+  const setScrolled=()=>header.classList.toggle('scrolled',scrollY>window.innerHeight*.85);
+  setScrolled();addEventListener('scroll',setScrolled,{passive:true});
+  menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open)});
   links.addEventListener('click',e=>{if(e.target.matches('a')){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
   addEventListener('keydown',e=>{if(e.key==='Escape'){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
-  const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   document.querySelector('#year').textContent=new Date().getFullYear();
+  const tabs=document.querySelectorAll('.life-tabs [role="tab"]');
+  tabs.forEach(tab=>tab.addEventListener('click',()=>{
+    tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',active);const panel=document.getElementById(t.getAttribute('aria-controls'));panel.classList.toggle('active',active);panel.hidden=!active});
+  }));
 </script>
 </body>
 </html>
