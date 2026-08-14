@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="张馨丹，AI 产品经理 / 产品经理。关注 Agent 人机协作、安全机制与数据驱动的体验优化。">
-  <meta name="theme-color" content="#fbf6ec">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a4e63'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e8a935' font-weight='500'%3E馨%3C/text%3E%3C/svg%3E">
-  <title>张馨丹｜AI 产品经理 · 一个东北金牛的作品集</title>
+  <meta name="description" content="张馨丹，产品经理。关注产品机制、用户信任与数据驱动的体验优化。">
+  <meta name="theme-color" content="#1f3348">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231f3348'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23c98a1b' font-weight='500'%3E馨%3C/text%3E%3C/svg%3E">
+  <title>张馨丹｜产品经理 · 一个东北金牛的作品集</title>
   <style>
     :root{
       --canvas:#fbf6ec;         /* 米白 */
@@ -18,8 +18,8 @@
       --line-strong:#c9b48f;
       --gold:#c98a1b;           /* 姜黄 */
       --gold-soft:#f0d59b;
-      --peacock:#0f5f79;        /* 孔雀蓝 */
-      --peacock-dk:#0a3d4e;
+      --peacock:#4c7fa8;        /* 霜蓝 */
+      --peacock-dk:#1f3348;      /* 深空蓝 */
       --clay:#b3532a;
       --white:#fff;
       --serif:"Cormorant Garamond","Songti SC","Noto Serif SC",Georgia,serif;
@@ -40,7 +40,7 @@
     /* nav */
     .site-header{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
     .site-header.scrolled{background:rgba(251,246,236,.94);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 1px 0 rgba(0,0,0,.03)}
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;color:#fff;transition:color .3s}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;color:var(--ink);transition:color .3s}
     .site-header.scrolled .nav{color:var(--ink)}
     .brand{font-family:var(--serif);font-size:26px;text-decoration:none;letter-spacing:.02em;font-weight:500;display:flex;align-items:center;gap:8px}
     .brand-mark{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--white);display:grid;place-items:center;font-size:16px;font-family:var(--serif);font-weight:600}
@@ -51,42 +51,39 @@
     .nav-cta{border:1px solid currentColor;padding:8px 14px!important;letter-spacing:.1em!important}
     .menu{display:none;padding:8px}.menu span{display:block;width:24px;height:1.5px;background:currentColor;margin:5px 0;transition:transform .3s}
 
-    /* HERO */
-    .hero{position:relative;min-height:100vh;color:#fff;overflow:hidden;background:var(--peacock-dk)}
-    .hero-bg{position:absolute;inset:0;z-index:0}
-    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.68) saturate(1.05)}
-    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,61,78,.35) 0%,rgba(10,61,78,.15) 45%,rgba(10,61,78,.85) 100%),linear-gradient(90deg,rgba(10,61,78,.55) 0%,rgba(10,61,78,0) 55%)}
-    .hero-inner{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:8fr 4fr;gap:60px;align-items:end;padding:120px 0 90px}
-    .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);display:flex;align-items:center;gap:14px;margin-bottom:26px}
-    .hero-eyebrow::before{content:"";width:44px;height:1px;background:var(--gold-soft)}
-    .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(60px,9vw,132px);line-height:.95;letter-spacing:-.02em;margin-bottom:28px;text-shadow:0 2px 20px rgba(0,0,0,.15)}
-    .hero h1 em{font-style:italic;color:var(--gold-soft);font-weight:400}
-    .hero-lead{font-size:clamp(17px,1.6vw,20px);max-width:640px;line-height:1.75;color:#e8ecef;margin-bottom:38px}
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:14px 22px;font-weight:600;font-size:14px;letter-spacing:.03em;border:1px solid;transition:transform .2s,background .2s,color .2s;font-family:var(--sans)}
+    /* HERO — 01 左文右人 + 剪纸拼贴 */
+    .hero{position:relative;min-height:100vh;color:var(--ink);overflow:hidden;background:var(--canvas)}
+    .hero-inner{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;padding:120px 0 70px}
+    .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dk);display:flex;align-items:center;gap:14px;margin-bottom:26px}
+    .hero-eyebrow::before{content:"";width:44px;height:1px;background:var(--gold)}
+    .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,6.5vw,88px);line-height:.98;letter-spacing:-.02em;margin-bottom:28px;color:var(--ink)}
+    .hero h1 em{font-style:italic;color:var(--peacock);font-weight:400}
+    .hero-lead{font-size:clamp(16px,1.4vw,18px);max-width:480px;line-height:1.78;color:var(--ink-soft);margin-bottom:36px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:13px 22px;font-weight:600;font-size:14px;letter-spacing:.03em;border:1px solid;transition:transform .2s,background .2s,color .2s;font-family:var(--sans)}
     .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
-    .btn.primary:hover{background:#a97012;border-color:#a97012}
-    .btn.ghost{border-color:#fff;color:#fff}
-    .btn.ghost:hover{background:#fff;color:var(--ink)}
-    .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .btn.dark:hover{background:var(--peacock-dk);border-color:var(--peacock-dk)}
+    .btn.primary:hover{background:var(--gold-dk);border-color:var(--gold-dk)}
+    .btn.ghost{border-color:var(--ink);color:var(--ink)}
+    .btn.ghost:hover{background:var(--ink);color:#fff}
     .btn:hover{transform:translateY(-2px)}
 
-    .hero-card{background:rgba(251,246,236,.94);color:var(--ink);padding:32px 30px;border-left:4px solid var(--gold);backdrop-filter:blur(14px);position:relative}
-    .hero-card::before{content:"";position:absolute;top:-14px;right:22px;padding:5px 12px;background:var(--peacock);color:#fff;font:11px var(--mono);letter-spacing:.14em;content:"HELLO ✿"}
-    .hero-card h2{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:14px;line-height:1.25}
-    .id-list{list-style:none;font-size:13.5px;color:var(--ink-soft);line-height:2}
-    .id-list li{display:flex;gap:10px;border-bottom:1px dashed var(--line);padding:6px 0}
-    .id-list li:last-child{border-bottom:0}
-    .id-list b{color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.1em;min-width:78px;text-transform:uppercase;padding-top:5px}
-    .id-list span{flex:1;color:var(--ink)}
+    /* hero stage (right side) */
+    .hero-stage{position:relative;align-self:end;height:clamp(420px,62vh,640px)}
+    .hero-paper{position:absolute;left:-6%;right:-14%;top:6%;bottom:0;background:var(--gold);clip-path:polygon(8% 12%,70% 2%,98% 22%,94% 74%,80% 96%,16% 92%,2% 62%);z-index:1}
+    .hero-paper::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.22),transparent 48%);mix-blend-mode:screen}
+    .hero-cutout{position:absolute;left:48%;bottom:0;transform:translateX(-50%);height:100%;width:auto;z-index:3;filter:drop-shadow(0 14px 30px rgba(31,51,72,.32))}
+    .hero-arc{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+    .hero-tag{position:absolute;font-family:var(--sans);font-size:12px;padding:6px 12px;background:var(--canvas);color:var(--ink);border:1px solid var(--ink);box-shadow:3px 3px 0 var(--ink);white-space:nowrap;z-index:5}
+    .hero-tag.blue{background:var(--peacock);color:#fff;border-color:var(--peacock);box-shadow:3px 3px 0 var(--gold)}
+    .hero-tag.plain{background:transparent;border:0;box-shadow:none;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--peacock-dk);padding:0}
+    .hero-dot{position:absolute;width:7px;height:7px;background:var(--peacock-dk);border-radius:50%;z-index:5}
 
-    .hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.7);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
-    .hero-scroll::after{content:"";width:1px;height:36px;background:linear-gradient(180deg,rgba(255,255,255,.7),transparent);animation:drop 1.8s ease-in-out infinite}
+    .hero-scroll{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:4;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .hero-scroll::after{content:"";width:1px;height:32px;background:linear-gradient(180deg,var(--muted),transparent);animation:drop 1.8s ease-in-out infinite}
     @keyframes drop{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 
     /* strip */
-    .strip{background:var(--gold);color:var(--ink);padding:14px 0;overflow:hidden}
+    .strip{background:var(--peacock);color:#fff;padding:14px 0;overflow:hidden}
     .strip-inner{display:flex;gap:60px;font:14px var(--serif);font-style:italic;white-space:nowrap;animation:marquee 40s linear infinite;letter-spacing:.02em}
     .strip-inner span{display:inline-flex;align-items:center;gap:16px}
     .strip-inner i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
@@ -225,8 +222,11 @@
 
     /* responsive */
     @media(max-width:960px){
-      .hero-inner{grid-template-columns:1fr;gap:36px;padding:110px 0 90px}
-      .hero-card{align-self:start}
+      .hero-inner{grid-template-columns:1fr;gap:20px;padding:110px 0 80px}
+      .hero-stage{height:360px;order:-1}
+      .hero-tag{font-size:10px;padding:4px 8px}
+      .hero-tag[style*="left:-"]{left:2%!important;transform:none!important}
+      .hero-tag[style*="right:-"]{right:2%!important;transform:none!important}
       .section-head{grid-template-columns:1fr;gap:20px;margin-bottom:44px}
       .cases{gap:16px}
       .case{grid-template-columns:1fr;gap:14px;padding:26px}
@@ -285,27 +285,30 @@
 
 <main id="main">
   <section class="hero" id="top">
-    <div class="hero-bg"><img src="assets/photos/portrait/hero-window.jpg" alt="张馨丹站在咖啡店窗边"></div>
     <div class="hero-inner wrap">
       <div>
-        <div class="hero-eyebrow">AI Product Manager · Class of 2027</div>
-        <h1>把复杂系统，<br>变成 <em>可用产品</em>。</h1>
-        <p class="hero-lead">你好，我是张馨丹。土生土长的东北人，一个愿意为一锅炖菜等三小时的金牛座 PM。工作里我关心 Agent 如何运行、用户是否理解并信任它；下班后我更愿意在路上、在厨房里，把日子过得踏实。</p>
+        <div class="hero-eyebrow">Product Manager · Class of 2027</div>
+        <h1>从看得到的问题，<br>到 <em>用得上的答案</em>。</h1>
+        <p class="hero-lead">你好，我是张馨丹。工作里我关心产品机制是否成立、用户是否理解并信任它；下班后我更愿意在路上、在厨房里，把日子过得踏实。</p>
         <div class="hero-actions">
           <a class="btn primary" href="#work">看看代表工作 <span aria-hidden="true">↓</span></a>
           <a class="btn ghost" href="./张馨丹_产品简历.pdf" download>下载简历 <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <aside class="hero-card">
-        <h2>关于我，<br><i style="font-style:italic;color:var(--peacock)">简短版本</i></h2>
-        <ul class="id-list">
-          <li><b>Origin</b><span>东北 · 一路向南</span></li>
-          <li><b>Zodiac</b><span>金牛座 · 稳但爱吃</span></li>
-          <li><b>MBTI</b><span>在 ENFJ 与 ESFJ 间反复横跳</span></li>
-          <li><b>Palette</b><span>姜黄 / 米白 / 孔雀蓝</span></li>
-          <li><b>Fuel</b><span>咖啡、家常菜、朋友</span></li>
-        </ul>
-      </aside>
+      <div class="hero-stage">
+        <div class="hero-paper"></div>
+        <svg class="hero-arc" viewBox="0 0 400 600" preserveAspectRatio="none">
+          <path d="M 20 320 Q 200 190 380 320" fill="none" stroke="#1f3348" stroke-width="1.4" stroke-dasharray="4 6"/>
+          <path d="M 10 470 Q 200 556 390 470" fill="none" stroke="#1f3348" stroke-width="1" stroke-dasharray="2 4"/>
+        </svg>
+        <img class="hero-cutout" src="assets/photos/portrait/hero-cutout.png" alt="张馨丹海边人像">
+        <span class="hero-dot" style="top:20%;left:24%"></span>
+        <span class="hero-dot" style="top:74%;right:16%"></span>
+        <span class="hero-tag blue" style="top:4%;right:2%;transform:rotate(6deg)">♉ Taurus</span>
+        <span class="hero-tag" style="top:32%;left:-16%;transform:rotate(-4deg)">东北人 · 一路向南</span>
+        <span class="hero-tag plain" style="top:50%;right:-8%;transform:rotate(3deg)">— ENFJ ⇋ ESFJ</span>
+        <span class="hero-tag" style="bottom:16%;left:-20%;transform:rotate(-2deg)">相机 &amp; 厨房</span>
+      </div>
     </div>
     <div class="hero-scroll" aria-hidden="true">SCROLL</div>
   </section>
