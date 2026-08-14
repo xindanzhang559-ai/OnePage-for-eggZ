@@ -127,24 +127,32 @@
     .role .company{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
     .role h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:10px}
     .role p{color:var(--muted);max-width:680px}
-    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:80px;padding-left:220px}
+    .education{margin-top:80px;padding-left:220px}
+    .subsection-label{font:11px var(--mono);letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
     .edu{padding:24px;background:var(--canvas-warm);border-left:3px solid var(--peacock)}
     .edu .meta{font:11px var(--mono);color:var(--peacock);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
     .edu h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:6px}
     .edu p{color:var(--muted);font-size:14px}
 
     /* projects */
-    .projects{margin-top:90px}
-    .projects-head{font-family:var(--serif);font-size:32px;font-weight:500;margin-bottom:36px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
-    .projects-head span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .project{padding:28px 26px;background:var(--canvas-warm);border-top:3px solid var(--peacock);transition:transform .3s,box-shadow .3s}
-    .project:nth-child(3n+2){border-top-color:var(--gold)}
-    .project:nth-child(3n){border-top-color:var(--clay)}
-    .project:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(15,95,121,.2)}
-    .project .meta{font:11px var(--mono);color:var(--peacock);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-    .project h4{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:10px}
-    .project p{font-size:13.5px;color:var(--ink-soft);line-height:1.78}
+    .projects{margin-top:100px;border-top:1px solid var(--line-strong);padding-top:28px}
+    .projects-head{display:grid;grid-template-columns:220px 1fr;gap:36px;margin-bottom:22px}
+    .projects-head h3{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1.2}
+    .projects-head p{max-width:560px;color:var(--muted);font-size:14px}
+    .projects-list{border-bottom:1px solid var(--line-strong)}
+    .project{border-top:1px solid var(--line);transition:background .25s}
+    .project:first-child{border-top-color:var(--line-strong)}
+    .project:hover,.project[open]{background:var(--canvas-warm)}
+    .project summary{list-style:none;display:grid;grid-template-columns:52px minmax(260px,1.4fr) minmax(180px,.8fr) minmax(130px,.55fr) 24px;gap:22px;align-items:center;padding:24px 18px;cursor:pointer}
+    .project summary::-webkit-details-marker{display:none}
+    .project-no{font:italic 24px var(--serif);color:var(--gold)}
+    .project-title h4{font-family:var(--serif);font-size:21px;font-weight:500;line-height:1.3}
+    .project-title span,.project-role{font:10px var(--mono);letter-spacing:.09em;color:var(--muted);text-transform:uppercase}
+    .project-result{font-family:var(--serif);font-size:17px;color:var(--peacock-dk);line-height:1.35}
+    .project-toggle{font-size:20px;color:var(--gold);transition:transform .25s}
+    .project[open] .project-toggle{transform:rotate(45deg)}
+    .project-detail{margin:0 42px 0 92px;padding:0 0 26px;max-width:720px;color:var(--ink-soft);font-size:14px;line-height:1.8}
 
     /* capabilities */
     .cap-wrap{background:var(--canvas-warm);padding:120px 0}
@@ -229,8 +237,13 @@
       .timeline-wrap::before{left:0}
       .role{grid-template-columns:1fr;gap:8px;padding-left:22px}
       .role::before{left:-4px;top:14px}
-      .edu-grid{grid-template-columns:1fr;padding-left:22px}
-      .projects-grid{grid-template-columns:1fr}
+      .education{padding-left:22px}
+      .edu-grid{grid-template-columns:1fr}
+      .projects-head{grid-template-columns:1fr;gap:8px}
+      .project summary{grid-template-columns:38px 1fr 24px;gap:12px;padding:20px 10px}
+      .project-role,.project-result{grid-column:2}
+      .project-toggle{grid-column:3;grid-row:1 / span 3}
+      .project-detail{margin:0 24px 0 60px}
       .skills{grid-template-columns:1fr}
       .life-lead{grid-template-columns:1fr;grid-auto-rows:240px}
       .life-lead figure,.life-lead figure:nth-child(2),.life-lead figure:nth-child(3){grid-row:span 1}
@@ -365,39 +378,22 @@
       <article class="role reveal"><time>2024.10 — 2025.01</time><div class="role-body"><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></div></article>
       <article class="role reveal"><time>2023.10 — 2026.12</time><div class="role-body"><div class="company">作业帮 · 线上业务中心</div><h3>运营实习生</h3><p>以漏斗与归因分析定位新人培训、留存问题，协助重构流程与运营策略，推动结训通过率环比提升约 5pp。</p></div></article>
     </div>
-    <div class="projects reveal">
-      <h3 class="projects-head">项目经历 <span>Selected Projects · 2022 — 2024</span></h3>
-      <div class="projects-grid">
-        <article class="project">
-          <div class="meta">2023.06 — 2024.06 · 校园创业 · 联合创始人</div>
-          <h4>奇奇妙妙摄影工作室</h4>
-          <p>洞察毕业季"个性化写真 + 一站式服务"的需求缺口，确立以定制服务为核心的产品定位，设计灵活定价与"团体预约 88 折"等策略；搭建客服、摄影、后勤三级协作体系，两年毕业季累计盈利 12000+ 元、完成 30+ 订单，好评率 100%。</p>
-        </article>
-        <article class="project">
-          <div class="meta">2023.03 — 2023.07 · 产品全链路 · 项目负责人</div>
-          <h4>智慧学工系统分析与设计</h4>
-          <p>拆解 12 类核心业务流程，输出 20+ 页 PRD 与交互原型，设计数据埋点方案与学生画像标签体系；基于低代码平台搭建模块化组件库（复用率超 70%）与 8 项核心指标实时看板，并开发智能问答机器人。</p>
-        </article>
-        <article class="project">
-          <div class="meta">2023.03 — 2023.05 · 机器学习商分 · 项目负责人</div>
-          <h4>客户行为分析与认购预测</h4>
-          <p>整合 3 万+ 银行客户画像、营销行为与宏观经济指标，通过多维可视化与 EDA 识别转化关键节点；基于 Python 对比多类预测模型，验证集准确率 90%+，并据特征重要性提出差异化触达策略，预计降低无效触达成本约 20%。</p>
-        </article>
-        <article class="project">
-          <div class="meta">2023.01 — 2023.04 · 正大杯 · 数据分析负责人</div>
-          <h4>新零售私域流量运营及策略分析</h4>
-          <p>基于 400+ 问卷与用户行为数据，结合 AARRR / AISAS 模型拆解用户从入群到转化、分享的关键影响因素；主导构建购买行为预测模型，输出降低无效推送频次、以专属权益替代拉新等可落地的社群运营策略。</p>
-        </article>
-        <article class="project">
-          <div class="meta">2022.09 — 2022.11 · 全栈开发 · 项目负责人</div>
-          <h4>旅游攻略类搜索引擎</h4>
-          <p>针对"信息失真、更新滞后"痛点，从 0 到 1 设计垂直检索产品框架并牵头前后端联动落地；搭建 ElasticSearch 检索平台，独立完成万级异构数据清洗入库与打分逻辑配置，前端渲染延迟 &lt;0.5s，结果可用率 95%+。</p>
-        </article>
+    <div class="education reveal">
+      <div class="subsection-label">Education</div>
+      <div class="edu-grid">
+        <article class="edu"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article>
+        <article class="edu"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article>
       </div>
     </div>
-    <div class="edu-grid">
-      <article class="edu reveal"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article>
-      <article class="edu reveal"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article>
+    <div class="projects reveal">
+      <div class="projects-head"><h3>项目选集</h3><p>课堂之外做过的一些真实项目。一级页面只保留角色与结果，展开可查看方法和过程。</p></div>
+      <div class="projects-list">
+        <details class="project"><summary><span class="project-no">01</span><span class="project-title"><span>2023.06 — 2024.06</span><h4>奇奇妙妙摄影工作室</h4></span><span class="project-role">校园创业 · 联合创始人</span><strong class="project-result">盈利 12,000+<br>好评率 100%</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">洞察毕业季“个性化写真 + 一站式服务”的需求缺口，确立定制服务定位，设计灵活定价与团体预约策略，并搭建客服、摄影、后勤三级协作体系，累计完成 30+ 订单。</p></details>
+        <details class="project"><summary><span class="project-no">02</span><span class="project-title"><span>2023.03 — 2023.07</span><h4>智慧学工系统分析与设计</h4></span><span class="project-role">产品全链路 · 项目负责人</span><strong class="project-result">20+ 页 PRD<br>组件复用 70%+</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">拆解 12 类核心业务流程，输出 PRD 与交互原型，设计数据埋点及学生画像标签体系；基于低代码平台搭建模块化组件库、8 项核心指标看板与智能问答机器人。</p></details>
+        <details class="project"><summary><span class="project-no">03</span><span class="project-title"><span>2023.03 — 2023.05</span><h4>客户行为分析与认购预测</h4></span><span class="project-role">机器学习商分 · 项目负责人</span><strong class="project-result">准确率 90%+<br>无效触达 -20%</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">整合 3 万+ 银行客户画像、营销行为与宏观经济指标，通过 EDA 识别转化关键节点；使用 Python 对比多类预测模型，并基于特征重要性提出差异化触达策略。</p></details>
+        <details class="project"><summary><span class="project-no">04</span><span class="project-title"><span>2023.01 — 2023.04</span><h4>新零售私域流量运营分析</h4></span><span class="project-role">正大杯 · 数据分析负责人</span><strong class="project-result">400+ 问卷<br>AARRR / AISAS</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">结合问卷与用户行为数据拆解从入群到转化、分享的关键影响因素，主导构建购买行为预测模型，输出减少无效推送、以专属权益替代拉新等社群运营策略。</p></details>
+        <details class="project"><summary><span class="project-no">05</span><span class="project-title"><span>2022.09 — 2022.11</span><h4>旅游攻略类搜索引擎</h4></span><span class="project-role">全栈开发 · 项目负责人</span><strong class="project-result">响应 &lt;0.5s<br>可用率 95%+</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">从 0 到 1 设计垂直检索产品，搭建 ElasticSearch 检索平台，独立完成万级异构数据清洗入库、打分逻辑配置与前端联动。</p></details>
+      </div>
     </div>
   </div></section>
 
