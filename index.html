@@ -133,6 +133,19 @@
     .edu h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:6px}
     .edu p{color:var(--muted);font-size:14px}
 
+    /* projects */
+    .projects{margin-top:90px}
+    .projects-head{font-family:var(--serif);font-size:32px;font-weight:500;margin-bottom:36px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+    .projects-head span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .project{padding:28px 26px;background:var(--canvas-warm);border-top:3px solid var(--peacock);transition:transform .3s,box-shadow .3s}
+    .project:nth-child(3n+2){border-top-color:var(--gold)}
+    .project:nth-child(3n){border-top-color:var(--clay)}
+    .project:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(15,95,121,.2)}
+    .project .meta{font:11px var(--mono);color:var(--peacock);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+    .project h4{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:10px}
+    .project p{font-size:13.5px;color:var(--ink-soft);line-height:1.78}
+
     /* capabilities */
     .cap-wrap{background:var(--canvas-warm);padding:120px 0}
     .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
@@ -154,43 +167,24 @@
     .life-panel.active{display:block}
     .life-intro{font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--ink-soft);font-style:italic;max-width:640px;margin-bottom:36px}
 
-    /* photography gallery — asymmetric mosaic */
-    .g-photo{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:100px;gap:14px}
-    .g-photo figure{position:relative;overflow:hidden;background:var(--peacock-dk);margin:0}
-    .g-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;filter:saturate(1.03)}
-    .g-photo figure:hover img{transform:scale(1.05)}
-    .g-photo figcaption{position:absolute;left:14px;bottom:12px;font:11px var(--mono);letter-spacing:.1em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.7);opacity:0;transform:translateY(6px);transition:.3s}
-    .g-photo figure:hover figcaption,.g-photo figure:focus-within figcaption{opacity:1;transform:none}
-    .g-photo figure:nth-child(1){grid-column:span 5;grid-row:span 5}
-    .g-photo figure:nth-child(2){grid-column:span 4;grid-row:span 3}
-    .g-photo figure:nth-child(3){grid-column:span 3;grid-row:span 3}
-    .g-photo figure:nth-child(4){grid-column:span 4;grid-row:span 2}
-    .g-photo figure:nth-child(5){grid-column:span 3;grid-row:span 2}
-    .g-photo figure:nth-child(6){grid-column:span 3;grid-row:span 3}
-    .g-photo figure:nth-child(7){grid-column:span 4;grid-row:span 3}
-    .g-photo figure:nth-child(8){grid-column:span 5;grid-row:span 3}
-    .g-photo figure:nth-child(9){grid-column:span 3;grid-row:span 3}
-    .g-photo figure:nth-child(10){grid-column:span 4;grid-row:span 3}
-    .g-photo figure:nth-child(11){grid-column:span 5;grid-row:span 3}
+    /* life magazine layout — shared by photography & food panels */
+    .life-lead{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;margin-bottom:26px;grid-auto-rows:280px}
+    .life-lead figure{position:relative;overflow:hidden;background:var(--peacock-dk);margin:0;grid-row:span 2}
+    .life-lead figure:nth-child(2){grid-row:span 1}
+    .life-lead figure:nth-child(3){grid-row:span 1}
+    .life-lead img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .life-lead figure:hover img{transform:scale(1.05)}
+    .life-lead .lead-cover{position:absolute;left:24px;bottom:24px;right:24px;color:#fff}
+    .life-lead .lead-cover em{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold-soft);margin-bottom:6px;text-transform:uppercase;font-style:normal}
+    .life-lead .lead-cover strong{font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.25;display:block;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+    .life-lead figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%);pointer-events:none}
 
-    /* food magazine layout */
-    .food-lead{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;margin-bottom:26px;grid-auto-rows:280px}
-    .food-lead figure{position:relative;overflow:hidden;background:var(--peacock-dk);margin:0;grid-row:span 2}
-    .food-lead figure:nth-child(2){grid-row:span 1}
-    .food-lead figure:nth-child(3){grid-row:span 1}
-    .food-lead img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
-    .food-lead figure:hover img{transform:scale(1.05)}
-    .food-lead .food-cover{position:absolute;left:24px;bottom:24px;right:24px;color:#fff}
-    .food-lead .food-cover em{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold-soft);margin-bottom:6px;text-transform:uppercase;font-style:normal}
-    .food-lead .food-cover strong{font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.25;display:block;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-    .food-lead figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%);pointer-events:none}
-
-    .food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .food-grid figure{aspect-ratio:1/1;overflow:hidden;position:relative;margin:0;background:var(--peacock-dk)}
-    .food-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
-    .food-grid figure:hover img{transform:scale(1.06)}
-    .food-grid figcaption{position:absolute;inset:auto 0 0 0;padding:10px 12px;color:#fff;font:11px var(--mono);letter-spacing:.08em;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));opacity:0;transition:.3s}
-    .food-grid figure:hover figcaption{opacity:1}
+    .life-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .life-grid figure{aspect-ratio:1/1;overflow:hidden;position:relative;margin:0;background:var(--peacock-dk)}
+    .life-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .life-grid figure:hover img{transform:scale(1.06)}
+    .life-grid figcaption{position:absolute;inset:auto 0 0 0;padding:10px 12px;color:#fff;font:11px var(--mono);letter-spacing:.08em;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));opacity:0;transition:.3s}
+    .life-grid figure:hover figcaption{opacity:1}
 
     /* life facts */
     .life-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;padding-top:44px;border-top:1px solid var(--line)}
@@ -236,16 +230,14 @@
       .role{grid-template-columns:1fr;gap:8px;padding-left:22px}
       .role::before{left:-4px;top:14px}
       .edu-grid{grid-template-columns:1fr;padding-left:22px}
+      .projects-grid{grid-template-columns:1fr}
       .skills{grid-template-columns:1fr}
-      .food-lead{grid-template-columns:1fr;grid-auto-rows:240px}
-      .food-lead figure,.food-lead figure:nth-child(2),.food-lead figure:nth-child(3){grid-row:span 1}
-      .food-grid{grid-template-columns:repeat(2,1fr)}
+      .life-lead{grid-template-columns:1fr;grid-auto-rows:240px}
+      .life-lead figure,.life-lead figure:nth-child(2),.life-lead figure:nth-child(3){grid-row:span 1}
+      .life-grid{grid-template-columns:repeat(2,1fr)}
       .life-facts{grid-template-columns:repeat(2,1fr)}
       .contact-inner{grid-template-columns:1fr}
-      .g-photo{grid-auto-rows:88px;gap:8px}
-      .g-photo figure{grid-column:span 6!important;grid-row:span 2!important}
-      .g-photo figure:nth-child(1){grid-column:span 12!important;grid-row:span 3!important}
-      .g-photo figcaption{opacity:1;transform:none}
+      .life-grid figcaption{opacity:1}
       .menu{display:block}
       .nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:var(--canvas);border:1px solid var(--line);padding:22px;flex-direction:column;align-items:stretch;gap:2px;color:var(--ink)}
       .nav-links.open{display:flex}
@@ -373,6 +365,36 @@
       <article class="role reveal"><time>2024.10 — 2025.01</time><div class="role-body"><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></div></article>
       <article class="role reveal"><time>2023.10 — 2026.12</time><div class="role-body"><div class="company">作业帮 · 线上业务中心</div><h3>运营实习生</h3><p>以漏斗与归因分析定位新人培训、留存问题，协助重构流程与运营策略，推动结训通过率环比提升约 5pp。</p></div></article>
     </div>
+    <div class="projects reveal">
+      <h3 class="projects-head">项目经历 <span>Selected Projects · 2022 — 2024</span></h3>
+      <div class="projects-grid">
+        <article class="project">
+          <div class="meta">2023.06 — 2024.06 · 校园创业 · 联合创始人</div>
+          <h4>奇奇妙妙摄影工作室</h4>
+          <p>洞察毕业季"个性化写真 + 一站式服务"的需求缺口，确立以定制服务为核心的产品定位，设计灵活定价与"团体预约 88 折"等策略；搭建客服、摄影、后勤三级协作体系，两年毕业季累计盈利 12000+ 元、完成 30+ 订单，好评率 100%。</p>
+        </article>
+        <article class="project">
+          <div class="meta">2023.03 — 2023.07 · 产品全链路 · 项目负责人</div>
+          <h4>智慧学工系统分析与设计</h4>
+          <p>拆解 12 类核心业务流程，输出 20+ 页 PRD 与交互原型，设计数据埋点方案与学生画像标签体系；基于低代码平台搭建模块化组件库（复用率超 70%）与 8 项核心指标实时看板，并开发智能问答机器人。</p>
+        </article>
+        <article class="project">
+          <div class="meta">2023.03 — 2023.05 · 机器学习商分 · 项目负责人</div>
+          <h4>客户行为分析与认购预测</h4>
+          <p>整合 3 万+ 银行客户画像、营销行为与宏观经济指标，通过多维可视化与 EDA 识别转化关键节点；基于 Python 对比多类预测模型，验证集准确率 90%+，并据特征重要性提出差异化触达策略，预计降低无效触达成本约 20%。</p>
+        </article>
+        <article class="project">
+          <div class="meta">2023.01 — 2023.04 · 正大杯 · 数据分析负责人</div>
+          <h4>新零售私域流量运营及策略分析</h4>
+          <p>基于 400+ 问卷与用户行为数据，结合 AARRR / AISAS 模型拆解用户从入群到转化、分享的关键影响因素；主导构建购买行为预测模型，输出降低无效推送频次、以专属权益替代拉新等可落地的社群运营策略。</p>
+        </article>
+        <article class="project">
+          <div class="meta">2022.09 — 2022.11 · 全栈开发 · 项目负责人</div>
+          <h4>旅游攻略类搜索引擎</h4>
+          <p>针对"信息失真、更新滞后"痛点，从 0 到 1 设计垂直检索产品框架并牵头前后端联动落地；搭建 ElasticSearch 检索平台，独立完成万级异构数据清洗入库与打分逻辑配置，前端渲染延迟 &lt;0.5s，结果可用率 95%+。</p>
+        </article>
+      </div>
+    </div>
     <div class="edu-grid">
       <article class="edu reveal"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article>
       <article class="edu reveal"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article>
@@ -404,31 +426,35 @@
 
     <div class="life-panel active reveal" id="panel-photo" role="tabpanel" aria-labelledby="tab-photo">
       <p class="life-intro">"相机是我随身的笔记本。有些地方值得慢下来看第二眼，那就按一下快门，让它先留在这里。"</p>
-      <div class="g-photo">
-        <figure><img src="assets/photos/photography/travel-village.jpg" alt="夜色中依山而建的古村落，木质建筑亮起层层灯光" loading="lazy"><figcaption>Village at dusk</figcaption></figure>
+
+      <div class="life-lead">
+        <figure><img src="assets/photos/photography/travel-village.jpg" alt="夜色中依山而建的古村落，木质建筑亮起层层灯光" loading="lazy"><div class="lead-cover"><em>Cover Story</em><strong>夜色降临，<br>村落的灯一层层亮起来</strong></div></figure>
+        <figure><img src="assets/photos/photography/city-hongyadong.jpg" alt="灯火通明的红色跨江大桥与吊脚楼群夜景" loading="lazy"><div class="lead-cover"><em>City Lights</em><strong>江边的灯火与桥</strong></div></figure>
+        <figure><img src="assets/photos/photography/travel-sunset.jpg" alt="橙红色夕阳沉入海平面前的礁石" loading="lazy"><div class="lead-cover"><em>Golden Hour</em><strong>夕阳落进海里</strong></div></figure>
+      </div>
+
+      <div class="life-grid">
         <figure><img src="assets/photos/photography/travel-tulip.jpg" alt="春日里红砖墙前盛开的郁金香花海" loading="lazy"><figcaption>Tulips in bloom</figcaption></figure>
         <figure><img src="assets/photos/photography/travel-cottage.jpg" alt="蓝天白云下山坡上的白色小屋" loading="lazy"><figcaption>Small house, big sky</figcaption></figure>
-        <figure><img src="assets/photos/photography/travel-sunset.jpg" alt="橙红色夕阳落在海面，远处城市剪影" loading="lazy"><figcaption>Golden hour</figcaption></figure>
         <figure><img src="assets/photos/photography/travel-autumn.jpg" alt="秋色红叶前眺望远处雾中城市" loading="lazy"><figcaption>Autumn overlook</figcaption></figure>
         <figure><img src="assets/photos/photography/travel-waterfall.jpg" alt="森林中弧形堤坝形成的绿色瀑布" loading="lazy"><figcaption>Emerald cascade</figcaption></figure>
-        <figure><img src="assets/photos/photography/city-hongyadong.jpg" alt="灯火通明的红色跨江大桥与吊脚楼群夜景" loading="lazy"><figcaption>City on the river</figcaption></figure>
         <figure><img src="assets/photos/photography/travel-morning.jpg" alt="金色晨光穿过枯枝，河面上的橡皮艇剪影" loading="lazy"><figcaption>First light</figcaption></figure>
-        <figure><img src="assets/photos/photography/travel-firework.jpg" alt="夜空中绽放的金红色烟花" loading="lazy"><figcaption>Sparks in the night</figcaption></figure>
-        <figure><img src="assets/photos/photography/city-bridge.jpg" alt="夕阳粉橙天空下的跨海大桥车流" loading="lazy"><figcaption>Bridge home</figcaption></figure>
-        <figure><img src="assets/photos/photography/travel-boat.jpg" alt="碧绿水面旁停泊的小船，画面静谧" loading="lazy"><figcaption>Still water</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-firework.jpg" alt="夜色里缀满灯火的树，如烟花绽放" loading="lazy"><figcaption>Sparks in the night</figcaption></figure>
+        <figure><img src="assets/photos/photography/travel-falls.jpg" alt="青山之间的大瀑布，水雾弥漫" loading="lazy"><figcaption>The grand falls</figcaption></figure>
+        <figure><img src="assets/photos/photography/city-crescent.jpg" alt="夜色中的樱花、路灯与一弯新月" loading="lazy"><figcaption>Crescent over sakura</figcaption></figure>
       </div>
     </div>
 
     <div class="life-panel reveal" id="panel-food" role="tabpanel" aria-labelledby="tab-food" hidden>
       <p class="life-intro">"好好吃饭是我给日子做的第一件事。周末的时候，一顿家常菜足够把一周的疲惫翻过去。"</p>
 
-      <div class="food-lead">
-        <figure><img src="assets/photos/food/food-brisket.jpg" alt="番茄土豆炖牛腩家常一桌" loading="lazy"><div class="food-cover"><em>THIS WEEK'S SPECIAL</em><strong>番茄土豆炖牛腩<br>一锅慢慢等出来的踏实</strong></div></figure>
-        <figure><img src="assets/photos/food/food-wine.jpg" alt="蘑菇炒鸡与白葡萄酒" loading="lazy"><div class="food-cover"><em>WEEKNIGHT</em><strong>周中晚饭 · 一瓶白葡萄酒</strong></div></figure>
-        <figure><img src="assets/photos/food/food-drinks.jpg" alt="调制饮品、松露薯片和荔枝的夜宵" loading="lazy"><div class="food-cover"><em>LATE NIGHT</em><strong>夜宵调酒配薯片</strong></div></figure>
+      <div class="life-lead">
+        <figure><img src="assets/photos/food/food-brisket.jpg" alt="番茄土豆炖牛腩家常一桌" loading="lazy"><div class="lead-cover"><em>THIS WEEK'S SPECIAL</em><strong>番茄土豆炖牛腩<br>一锅慢慢等出来的踏实</strong></div></figure>
+        <figure><img src="assets/photos/food/food-wine.jpg" alt="蘑菇炒鸡与白葡萄酒" loading="lazy"><div class="lead-cover"><em>WEEKNIGHT</em><strong>周中晚饭 · 一瓶白葡萄酒</strong></div></figure>
+        <figure><img src="assets/photos/food/food-drinks.jpg" alt="调制饮品、松露薯片和荔枝的夜宵" loading="lazy"><div class="lead-cover"><em>LATE NIGHT</em><strong>夜宵调酒配薯片</strong></div></figure>
       </div>
 
-      <div class="food-grid">
+      <div class="life-grid">
         <figure><img src="assets/photos/food/food-crayfish.jpg" alt="麻辣小龙虾和拌面" loading="lazy"><figcaption>Crayfish night</figcaption></figure>
         <figure><img src="assets/photos/food/food-oyster.jpg" alt="生蚝鸡肉煲" loading="lazy"><figcaption>Oysters at home</figcaption></figure>
         <figure><img src="assets/photos/food/food-clay.jpg" alt="砂锅茄子煲、酸汤鱼片" loading="lazy"><figcaption>Clay pot, weeknight</figcaption></figure>
@@ -465,7 +491,7 @@
 </main>
 
 <footer><div class="wrap">
-  <span>© <span id="year"></span> 张馨丹 · 东北 → 南京 → 成都 → 北京</span>
+  <span>© <span id="year"></span> 张馨丹 · 东北 → 南京 → 成都 → 北京 → 上海</span>
   <span>Designed for clarity, built for trust.</span>
 </div></footer>
 
