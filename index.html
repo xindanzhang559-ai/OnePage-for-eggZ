@@ -151,6 +151,7 @@
     .aui-avatar{width:26px;height:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--serif)}
     .aui-bubble{background:#f1ebdd;border-radius:2px 10px 10px 10px;padding:10px 12px;font-size:13.5px;line-height:1.6;color:var(--ink);max-width:88%}
     .aui-statusline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-left:34px}
+    .aui-statusline[hidden]{display:none}
     .aui-spin{width:12px;height:12px;border:2px solid var(--line);border-top-color:var(--peacock);border-radius:50%;animation:aui-rot .8s linear infinite;flex:none}
     @keyframes aui-rot{to{transform:rotate(360deg)}}
     /* 等待用户输入时的静止指示（非加载态） */
@@ -199,7 +200,7 @@
     @keyframes aui-blink{0%,100%{opacity:.3}50%{opacity:1}}
     .aui-reset{align-self:center;font:11px var(--mono);color:var(--muted);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px;background:none;border:0;cursor:pointer;padding:4px}
     .aui-reset:hover{color:var(--gold-dk)}
-    .aui-caption{font:10px var(--mono);color:#8fa0a8;letter-spacing:.06em;margin:0;text-align:center}
+    .aui-caption{font:9px var(--mono);color:rgba(255,255,255,.32);letter-spacing:.04em;margin:0;text-align:center}
 
      /* experience */
     .timeline-wrap{position:relative}
@@ -468,7 +469,7 @@
             </div>
             <div class="aui-stream" data-stream aria-live="polite">
               <div class="aui-task"><b>任务</b>接待网站访客，先确认关注点再给出口播介绍</div>
-              <div class="aui-think"><b>正在思考…</b>访客画像未知。调用 ask_user_input，通过三张卡片逐一收集关键信息，再统一组织介绍口径。</div>
+              <div class="aui-think"><b>思路</b>访客画像未知。调用 ask_user_input，通过三张卡片逐一收集关键信息，再统一组织介绍口径。</div>
               <div class="aui-msg">
                 <span class="aui-avatar" aria-hidden="true">丹</span>
                 <div class="aui-bubble">欢迎来到我的主页。在深入介绍之前，我想先快速确认你的关注点 —— 3 个小问题：</div>
@@ -824,17 +825,14 @@
 
     function next(){
       step++;
-      if(step<CARDS.length){
-        // 提交后短暂展示处理态，再渲染下一张卡，避免"一直加载"的错觉
-        setStatus('busy','正在整理下一个问题…');
-        setTimeout(renderCard,reduced?0:420);
-      }else{
-        finish();
-      }
+      // 提交后直接推进到下一张卡（renderCard 会切回静止的等待态），不再出现旋转加载
+      step<CARDS.length?renderCard():finish();
     }
 
     function finish(){
-      setStatus('busy','正在整理你的回答…');
+      // 提问结束，直接收起底部状态行并呈现汇总，不再显示任何加载态
+      statusLine.hidden=true;
+      statusLine.classList.remove('is-waiting');
       card.innerHTML='';
       const head=el('div','aui-card-head');
       head.appendChild(el('p','aui-q','提问已结束 ✓'));
@@ -844,14 +842,12 @@
         const line=el('div','aui-done-line',`<b>${labels[i]}</b><span>${a?esc(a):'已跳过'}</span>`);
         card.appendChild(line);
       });
-      // 汇总卡已呈现，收起底部状态行，避免残留"加载中"
-      statusLine.hidden=true;
-      statusLine.classList.remove('is-waiting');
       const follow=el('div','aui-msg');
       follow.innerHTML='<span class="aui-avatar" aria-hidden="true">丹</span><div class="aui-bubble"><span class="aui-typing" aria-hidden="true"><i></i><i></i><i></i></span><span class="aui-follow-text" hidden></span></div>';
       stream.appendChild(follow);
       const say=()=>{
-        follow.querySelector('.aui-typing').hidden=true;
+        const typing=follow.querySelector('.aui-typing');
+        if(typing)typing.remove();
         const text=follow.querySelector('.aui-follow-text');
         text.hidden=false;
         text.textContent='收到，你的关注点已记录。下方的代表工作与经历章节都有对应实例，慢慢看。';
