@@ -25,6 +25,7 @@
       --white:#fff;
       --shadow-peacock:rgba(31,51,72,.32);  /* 人像投影 */
       --halo-gold:rgba(240,213,155,.2);     /* 暖金光晕 */
+      --hi-blue:#2f6bff;                    /* 画中画内还原 Hi-work 品牌蓝（演示内容，非站点色板） */
       --serif:"Cormorant Garamond","Songti SC","Noto Serif SC",Georgia,serif;
       --sans:"Inter","PingFang SC","Microsoft YaHei",sans-serif;
       --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
@@ -128,9 +129,79 @@
     .case ul{list-style:none;border-left:1px solid rgba(255,255,255,.15);padding-left:24px}
     .case ul strong{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:#fff;margin-bottom:12px}
     .case ul li{margin-bottom:8px;color:#bdc9d1;font-size:14px;position:relative;padding-left:16px}
-    .case ul li::before{content:"◇";position:absolute;left:0;color:var(--gold-soft);font-size:10px}
+     .case ul li::before{content:"◇";position:absolute;left:0;color:var(--gold-soft);font-size:10px}
 
-    /* experience */
+    /* aui demo — AskUserInput 画中画 (case 01)，还原 Hi-work 真实卡片流 */
+    .aui-demo{display:flex;flex-direction:column;gap:10px}
+    .aui-window{background:#fdfaf4;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.35);color:var(--ink)}
+    .aui-titlebar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--canvas-warm);border-bottom:1px solid var(--line)}
+    .aui-dots{display:inline-flex;gap:5px}
+    .aui-dots i{width:9px;height:9px;border-radius:50%}
+    .aui-dots i:nth-child(1){background:var(--clay)}
+    .aui-dots i:nth-child(2){background:var(--gold)}
+    .aui-dots i:nth-child(3){background:var(--peacock)}
+    .aui-title{font:11px var(--mono);letter-spacing:.1em;color:var(--muted)}
+    .aui-live{margin-left:auto;font:9px var(--mono);letter-spacing:.14em;color:var(--gold-dk);border:1px solid var(--gold);padding:2px 7px;border-radius:99px}
+    .aui-stream{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px}
+    .aui-task{font:11px var(--mono);color:var(--muted);letter-spacing:.04em;border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:#fff}
+    .aui-task b{color:var(--peacock);font-weight:400;margin-right:6px}
+    .aui-think{font-size:12px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 10px;line-height:1.6}
+    .aui-think b{display:block;color:var(--ink-soft);font-weight:500}
+    .aui-msg{display:flex;gap:8px;align-items:flex-start}
+    .aui-avatar{width:26px;height:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--serif)}
+    .aui-bubble{background:#f1ebdd;border-radius:2px 10px 10px 10px;padding:10px 12px;font-size:13.5px;line-height:1.6;color:var(--ink);max-width:88%}
+    .aui-statusline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-left:34px}
+    .aui-spin{width:12px;height:12px;border:2px solid var(--line);border-top-color:var(--peacock);border-radius:50%;animation:aui-rot .8s linear infinite;flex:none}
+    @keyframes aui-rot{to{transform:rotate(360deg)}}
+    /* 等待用户输入时的静止指示（非加载态） */
+    .aui-statusline.is-waiting .aui-spin{animation:none;border:none;width:8px;height:8px;background:var(--peacock);opacity:.5;animation:aui-pulse 1.6s ease-in-out infinite}
+    @keyframes aui-pulse{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:.75;transform:scale(1)}}
+    .aui-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px 12px;margin-left:34px;box-shadow:0 2px 10px rgba(29,43,51,.06)}
+    .aui-card-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+    .aui-q{font-size:15px;font-weight:600;line-height:1.45;color:var(--ink);margin:0;flex:1}
+    .aui-q em{font-style:normal;font-weight:400;font-size:12px;color:var(--muted);margin-left:6px}
+    .aui-pager{display:flex;align-items:center;gap:6px;font:11px var(--mono);color:var(--muted);flex:none}
+    .aui-pager b{color:var(--ink);font-weight:400}
+    .aui-x{color:var(--muted);font-size:14px;line-height:1;padding:2px 4px}
+    .aui-x:hover{color:var(--ink)}
+    .aui-opts{display:grid;gap:4px}
+    .aui-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 8px;border-radius:8px;transition:background .15s;border:0;background:none;width:100%;cursor:pointer}
+    .aui-opt:hover:not(:disabled){background:#f7f4ec}
+    .aui-opt:disabled{cursor:default}
+    .aui-num{width:24px;height:24px;border-radius:50%;background:#f0ede6;color:var(--muted);font:12px var(--mono);display:flex;align-items:center;justify-content:center;flex:none;transition:.15s}
+    .aui-opt.picked .aui-num{background:var(--hi-blue);color:#fff}
+    .aui-ck{width:16px;height:16px;border:1.5px solid #d5cfc2;border-radius:4px;flex:none;position:relative;transition:.15s;background:#fff}
+    .aui-opt.picked .aui-ck{background:var(--hi-blue);border-color:var(--hi-blue)}
+    .aui-opt.picked .aui-ck::after{content:"✓";position:absolute;inset:0;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center}
+    .aui-opt-t{flex:1;min-width:0}
+    .aui-opt-t b{display:block;font-weight:500;font-size:13.5px;color:var(--ink);line-height:1.4}
+    .aui-opt-t span{display:block;font-size:12px;color:var(--muted);line-height:1.4;margin-top:1px}
+    .aui-handle{color:#c9c2b4;font-size:13px;letter-spacing:2px;cursor:grab;flex:none;user-select:none}
+    .aui-rank .aui-opt{cursor:grab;touch-action:none}
+    .aui-rank .aui-opt.dragging{opacity:.45;background:#f7f4ec}
+    .aui-other{display:flex;align-items:center;gap:10px;padding:8px 8px 4px}
+    .aui-other .aui-ck{pointer-events:none}
+    .aui-other input{flex:1;min-width:0;border:0;border-bottom:1px solid var(--line);background:none;padding:6px 2px;font:inherit;font-size:13px;color:var(--ink)}
+    .aui-other input:focus{outline:0;border-bottom-color:var(--hi-blue)}
+    .aui-card-foot{display:flex;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #f0ede6}
+    .aui-hint{font-size:12px;color:var(--muted)}
+    .aui-foot-r{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .aui-skip{font-size:13px;color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:6px 16px;background:#fff;cursor:pointer;transition:.15s}
+    .aui-skip:hover{border-color:var(--muted)}
+    .aui-go{width:30px;height:30px;border-radius:50%;background:#dcd6ca;color:#fff;border:0;font-size:14px;display:flex;align-items:center;justify-content:center;cursor:default;transition:.15s;flex:none}
+    .aui-go.on{background:var(--hi-blue);cursor:pointer}
+    .aui-done-line{display:flex;gap:8px;font-size:12.5px;color:var(--ink-soft);line-height:1.7;padding:3px 0}
+    .aui-done-line b{font-weight:500;color:var(--ink);flex:none;min-width:56px}
+    .aui-typing{display:inline-flex;gap:4px;padding:2px 0}
+    .aui-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:aui-blink 1s infinite}
+    .aui-typing i:nth-child(2){animation-delay:.18s}
+    .aui-typing i:nth-child(3){animation-delay:.36s}
+    @keyframes aui-blink{0%,100%{opacity:.3}50%{opacity:1}}
+    .aui-reset{align-self:center;font:11px var(--mono);color:var(--muted);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px;background:none;border:0;cursor:pointer;padding:4px}
+    .aui-reset:hover{color:var(--gold-dk)}
+    .aui-caption{font:10px var(--mono);color:#8fa0a8;letter-spacing:.06em;margin:0;text-align:center}
+
+     /* experience */
     .timeline-wrap{position:relative}
     .timeline-wrap::before{content:"";position:absolute;left:180px;top:20px;bottom:20px;width:1px;background:var(--line-strong)}
     .role{display:grid;grid-template-columns:160px 1fr;gap:60px;padding:28px 0;position:relative}
@@ -228,7 +299,33 @@
     footer{background:var(--ink);color:rgba(255,255,255,.55);padding:32px 0;font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-    /* entrance — 仅首屏一次性入场，其余内容直接呈现 */
+    /* built-with-agents easter egg (footer) */
+    .colophon{max-width:640px;color:rgba(255,255,255,.72);font:13.5px/1.85 var(--sans);text-transform:none;letter-spacing:0;padding:18px 0 20px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:20px}
+    .colophon strong{color:var(--gold-soft);font-weight:600}
+    .agents-toggle{font:inherit;letter-spacing:inherit;text-transform:inherit;color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--gold-soft);transition:color .2s}
+    .agents-toggle:hover{color:var(--gold-soft)}
+    .agents-toggle::after{content:"▴";display:inline-block;margin-left:6px;font-size:9px;transition:transform .25s}
+    .agents-toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
+
+    /* lightbox */
+    .lightbox{position:fixed;inset:0;z-index:var(--z-skip);background:rgba(16,22,20,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:40px}
+    .lightbox[hidden]{display:none}
+    .lightbox img{max-width:min(88vw,1100px);max-height:82vh;object-fit:contain;display:block;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .lb-cap{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.8);font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .lb-close,.lb-prev,.lb-next{position:absolute;color:#fff;font-size:34px;line-height:1;padding:14px;opacity:.75;transition:opacity .2s,transform .2s}
+    .lb-close:hover,.lb-prev:hover,.lb-next:hover{opacity:1}
+    .lb-close{top:10px;right:16px}
+    .lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+    .lb-next{right:12px;top:50%;transform:translateY(-50%)}
+    .lb-prev:hover{transform:translateY(-50%) translateX(-3px)}
+    .lb-next:hover{transform:translateY(-50%) translateX(3px)}
+    .life-grid figure,.life-lead figure{cursor:zoom-in}
+
+    /* timeline scroll progress */
+    .timeline-progress{position:absolute;left:180px;top:20px;bottom:20px;width:1px;background:var(--gold);transform:scaleY(0);transform-origin:top;will-change:transform}
+    @media(max-width:960px){.timeline-progress{left:0}}
+
+     /* entrance — 仅首屏一次性入场，其余内容直接呈现 */
     @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
     .hero-inner>div:first-child>*{animation:rise .7s cubic-bezier(.22,.61,.36,1) both}
     .hero-inner>div:first-child>*:nth-child(2){animation-delay:.08s}
@@ -356,12 +453,32 @@
           <span class="case-tag">Human–Agent Interaction</span>
           <h3>让 Agent 在关键时刻，正确地向人提问</h3>
           <p>针对纯文本确认成本高、多轮沟通效率低的问题，负责 AskUserInput 交互卡片：从真实任务抽象单选、多选、排序和自定义输入范式，并结合 Agent loop 生命周期、跨端与会话同步约束，推动方案收敛为消息流卡片与结构化信息回传。</p>
+          <ul><strong>把「聊天控件」设计成 Agent 能力</strong>
+            <li>独立完成 PRD 与交互 Demo</li>
+            <li>多轮跨产品、设计、研发对齐</li>
+            <li>覆盖状态、版本与异常路径</li>
+          </ul>
         </div>
-        <ul><strong>把"聊天控件"设计成 Agent 能力</strong>
-          <li>独立完成 PRD 与交互 Demo</li>
-          <li>多轮跨产品、设计、研发对齐</li>
-          <li>覆盖状态、版本与异常路径</li>
-        </ul>
+        <div class="aui-demo">
+          <div class="aui-window">
+            <div class="aui-titlebar">
+              <span class="aui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="aui-title">Hi-work · 网站导览</span>
+              <span class="aui-live">交互演示</span>
+            </div>
+            <div class="aui-stream" data-stream aria-live="polite">
+              <div class="aui-task"><b>任务</b>接待网站访客，先确认关注点再给出口播介绍</div>
+              <div class="aui-think"><b>正在思考…</b>访客画像未知。调用 ask_user_input，通过三张卡片逐一收集关键信息，再统一组织介绍口径。</div>
+              <div class="aui-msg">
+                <span class="aui-avatar" aria-hidden="true">丹</span>
+                <div class="aui-bubble">欢迎来到我的主页。在深入介绍之前，我想先快速确认你的关注点 —— 3 个小问题：</div>
+              </div>
+              <div class="aui-statusline" data-status><span class="aui-spin" aria-hidden="true"></span>正在询问用户关键信息…</div>
+              <div class="aui-card" data-card></div>
+            </div>
+          </div>
+          <p class="aui-caption">交互演示 · 还原真实场景中 AskUserInput 卡片的主要流程</p>
+        </div>
       </div></article>
       <article class="case"><div class="case-no">02</div><div class="case-body">
         <div>
@@ -396,6 +513,7 @@
       <p>从数据分析与算法产品化出发，逐步走向复杂平台和 AI Agent 产品。这些经历共同塑造了我：既关心机制是否成立，也关心产品是否真正被使用。</p>
     </div>
     <div class="timeline-wrap">
+      <div class="timeline-progress" aria-hidden="true"></div>
       <article class="role"><time>2026.05 — 至今</time><div class="role-body"><div class="company">小红书 · 企业智能部</div><h3>AI 产品经理</h3><p>参与公司级 AI 办公产品 Hi-work 建设，覆盖 Agent 输出、信息溯源、产物交付、Human-in-the-Loop、安全确认与体验优化。</p></div></article>
       <article class="role"><time>2026.01 — 2026.04</time><div class="role-body"><div class="company">百度 · 内容产品部</div><h3>产品经理</h3><p>负责百家号运营平台多模块迭代，推动 10+ 需求上线；结合竞品、问卷与行为数据辅助季度规划，并搭建平台专属 AI 客服。</p></div></article>
       <article class="role"><time>2024.10 — 2025.01</time><div class="role-body"><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></div></article>
@@ -508,10 +626,25 @@
   </div></section>
 </main>
 
-<footer><div class="wrap">
-  <span>© <span id="year"></span> 张馨丹 · 东北 → 南京 → 成都 → 北京 → 上海</span>
-  <span>Designed for clarity, built for trust.</span>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <div class="colophon" id="colophon" hidden>
+      <p><strong>Built with Agents.</strong> 这个网站本身就是一次人机协作实验：内容、审美与关键决策由我负责；人像抠图的像素级修复、设计审计与 12 项修复、代码实现与验证由 AI Agent 协作完成。它不是「AI 替我做的」，而是「我带着 Agent 一起做的」。如果你也对这种工作方式好奇，欢迎聊聊。</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <span>© <span id="year"></span> 张馨丹 · 东北 → 南京 → 成都 → 北京 → 上海</span>
+    <span>Designed for clarity, built for trust.<button class="agents-toggle" aria-expanded="false" aria-controls="colophon">Built with Agents</button></span>
+  </div>
+</footer>
+
+<div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="图片预览">
+  <button class="lb-close" aria-label="关闭预览">×</button>
+  <button class="lb-prev" aria-label="上一张">‹</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+  <button class="lb-next" aria-label="下一张">›</button>
+</div>
 
 <script>
   const header=document.querySelector('#header'),menu=document.querySelector('.menu'),links=document.querySelector('.nav-links');
@@ -531,6 +664,286 @@
     const next=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];
     next.focus();activate(next);
   });
+
+  /* AskUserInput demo — case 01 画中画，还原真实三卡流（单选→多选→排序） */
+  const aui=document.querySelector('.aui-demo');
+  if(aui){
+    const card=aui.querySelector('[data-card]');
+    const stream=aui.querySelector('[data-stream]');
+    const statusLine=aui.querySelector('[data-status]');
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const CARDS=[
+      {type:'single',q:'这次访问，你最想先验证什么？',options:[
+        {t:'产品判断力',d:'如何定义问题与做取舍'},
+        {t:'Agent 交互设计手感',d:'真实组件的细节与状态'},
+        {t:'数据分析能力',d:'增长实验与结论验证'}]},
+      {type:'multi',q:'想深入了解哪些经历？',tag:'可多选',options:[
+        {t:'AskUserInput 交互卡片',d:'Hi-work · 人机交互机制'},
+        {t:'Agent 安全与信任机制',d:'防误操作的确认设计'},
+        {t:'增长 A/B 实验',d:'数据驱动的效果验证'}],other:true},
+      {type:'rank',q:'按你关心的程度，排个序',hint:'拖拽调整优先级',items:[
+        '产品定义与机制','交互细节与状态','数据分析与验证','跨团队推进']}
+    ];
+    const el=(tag,cls,html)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n};
+    let step=0,answers=[];
+    const esc=s=>s.replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+    const statusText=statusLine.lastChild;
+    // waiting: 等待用户输入的静止态；busy: Agent 正在处理的加载态
+    function setStatus(mode,text){
+      statusLine.hidden=false;
+      statusLine.classList.toggle('is-waiting',mode==='waiting');
+      if(statusText&&statusText.nodeType===3)statusText.textContent=text;
+      else statusLine.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent=text});
+    }
+
+    function renderCard(){
+      card.innerHTML='';
+      setStatus('waiting','等待你的选择…');
+      const def=CARDS[step];
+      const head=el('div','aui-card-head');
+      head.appendChild(el('p','aui-q',esc(def.q)+(def.tag?`<em>${def.tag}</em>`:'')));
+      const pager=el('span','aui-pager',`‹ <b>${step+1}</b>/${CARDS.length} ›`);
+      const x=el('button','aui-x','×');x.type='button';x.setAttribute('aria-label','跳过全部提问');
+      x.addEventListener('click',()=>{answers=answers.concat(Array(CARDS.length-step).fill(null));finish()});
+      head.appendChild(pager);head.appendChild(x);
+      card.appendChild(head);
+
+      if(def.type==='single'){
+        const list=el('div','aui-opts');
+        def.options.forEach((o,i)=>{
+          const b=el('button','aui-opt',`<span class="aui-num">${i+1}</span><span class="aui-opt-t"><b>${esc(o.t)}</b><span>${esc(o.d)}</span></span>`);
+          b.type='button';
+          b.addEventListener('click',()=>{
+            if(b.classList.contains('picked'))return;
+            b.classList.add('picked');
+            list.querySelectorAll('button').forEach(x=>x.disabled=true);
+            setTimeout(()=>{answers.push(o.t);next()},reduced?0:300);
+          });
+          list.appendChild(b);
+        });
+        card.appendChild(list);
+        card.appendChild(foot('',true));
+      }
+
+      if(def.type==='multi'){
+        const list=el('div','aui-opts');
+        const picked=new Set();
+        let otherText='';
+        def.options.forEach(o=>{
+          const b=el('button','aui-opt',`<span class="aui-ck" aria-hidden="true"></span><span class="aui-opt-t"><b>${esc(o.t)}</b><span>${esc(o.d)}</span></span>`);
+          b.type='button';b.setAttribute('aria-pressed','false');
+          b.addEventListener('click',()=>{
+            const on=!picked.has(o.t);
+            on?picked.add(o.t):picked.delete(o.t);
+            b.classList.toggle('picked',on);
+            b.setAttribute('aria-pressed',String(on));
+            sync();
+          });
+          list.appendChild(b);
+        });
+        card.appendChild(list);
+        if(def.other){
+          const row=el('div','aui-other',`<span class="aui-ck" aria-hidden="true"></span>`);
+          const input=el('input');input.type='text';input.maxLength=50;
+          input.placeholder='其他（请输入）…';input.setAttribute('aria-label','其他，自定义输入');
+          input.addEventListener('input',()=>{otherText=input.value.trim();row.querySelector('.aui-ck').style.cssText=otherText?'background:var(--hi-blue);border-color:var(--hi-blue)':'';sync()});
+          row.appendChild(input);
+          card.appendChild(row);
+        }
+        const f=foot('0 项已选',true,true);
+        card.appendChild(f);
+        const hint=f.querySelector('.aui-hint'),go=f.querySelector('.aui-go');
+        function sync(){
+          hint.textContent=`${picked.size} 项已选`;
+          go.classList.toggle('on',picked.size>0||!!otherText);
+        }
+        go.addEventListener('click',()=>{
+          if(!(picked.size>0||otherText))return;
+          answers.push([...picked,otherText].filter(Boolean).join('、'));
+          next();
+        });
+      }
+
+      if(def.type==='rank'){
+        const list=el('div','aui-opts aui-rank');
+        def.items.forEach((t,i)=>{
+          const row=el('div','aui-opt',`<span class="aui-num">${i+1}</span><span class="aui-opt-t"><b>${esc(t)}</b></span><span class="aui-handle" aria-hidden="true">≡</span>`);
+          list.appendChild(row);
+        });
+        card.appendChild(list);
+        let dragRow=null;
+        list.addEventListener('pointerdown',e=>{
+          const row=e.target.closest('.aui-opt');
+          if(!row)return;
+          e.preventDefault();
+          dragRow=row;row.classList.add('dragging');
+          try{row.setPointerCapture(e.pointerId)}catch(_){}
+        });
+        list.addEventListener('pointermove',e=>{
+          if(!dragRow)return;
+          const over=document.elementFromPoint(e.clientX,e.clientY)?.closest('.aui-opt');
+          if(over&&over!==dragRow&&over.parentNode===list){
+            const rows=[...list.children];
+            rows.indexOf(dragRow)<rows.indexOf(over)?list.insertBefore(dragRow,over.nextSibling):list.insertBefore(dragRow,over);
+          }
+        });
+        const drop=()=>{
+          if(!dragRow)return;
+          dragRow.classList.remove('dragging');dragRow=null;
+          list.querySelectorAll('.aui-num').forEach((n,i)=>n.textContent=i+1);
+        };
+        list.addEventListener('pointerup',drop);
+        list.addEventListener('pointercancel',drop);
+        const f=foot(def.hint,true,true,'↑');
+        card.appendChild(f);
+        const go=f.querySelector('.aui-go');
+        go.classList.add('on');
+        go.addEventListener('click',()=>{
+          answers.push([...list.querySelectorAll('.aui-opt-t b')].map(b=>b.textContent).join(' → '));
+          next();
+        });
+      }
+    }
+
+    function foot(hintText,skip,go,glyph){
+      const f=el('div','aui-card-foot');
+      f.appendChild(el('span','aui-hint',esc(hintText||'')));
+      const r=el('div','aui-foot-r');
+      if(skip){
+        const s=el('button','aui-skip','跳过');s.type='button';
+        s.addEventListener('click',()=>{answers.push(null);next()});
+        r.appendChild(s);
+      }
+      if(go){
+        const g=el('button','aui-go',glyph||'→');g.type='button';g.setAttribute('aria-label','提交');
+        r.appendChild(g);
+      }
+      f.appendChild(r);
+      return f;
+    }
+
+    function next(){
+      step++;
+      if(step<CARDS.length){
+        // 提交后短暂展示处理态，再渲染下一张卡，避免"一直加载"的错觉
+        setStatus('busy','正在整理下一个问题…');
+        setTimeout(renderCard,reduced?0:420);
+      }else{
+        finish();
+      }
+    }
+
+    function finish(){
+      setStatus('busy','正在整理你的回答…');
+      card.innerHTML='';
+      const head=el('div','aui-card-head');
+      head.appendChild(el('p','aui-q','提问已结束 ✓'));
+      card.appendChild(head);
+      const labels=['单选','多选','优先级'];
+      answers.forEach((a,i)=>{
+        const line=el('div','aui-done-line',`<b>${labels[i]}</b><span>${a?esc(a):'已跳过'}</span>`);
+        card.appendChild(line);
+      });
+      // 汇总卡已呈现，收起底部状态行，避免残留"加载中"
+      statusLine.hidden=true;
+      statusLine.classList.remove('is-waiting');
+      const follow=el('div','aui-msg');
+      follow.innerHTML='<span class="aui-avatar" aria-hidden="true">丹</span><div class="aui-bubble"><span class="aui-typing" aria-hidden="true"><i></i><i></i><i></i></span><span class="aui-follow-text" hidden></span></div>';
+      stream.appendChild(follow);
+      const say=()=>{
+        follow.querySelector('.aui-typing').hidden=true;
+        const text=follow.querySelector('.aui-follow-text');
+        text.hidden=false;
+        text.textContent='收到，你的关注点已记录。下方的代表工作与经历章节都有对应实例，慢慢看。';
+        const reset=el('button','aui-reset','↺ 重新体验');
+        reset.type='button';
+        reset.addEventListener('click',()=>{
+          follow.remove();reset.remove();
+          step=0;answers=[];
+          statusLine.hidden=false;
+          renderCard();
+        });
+        stream.appendChild(reset);
+      };
+      if(reduced)say();else setTimeout(say,1100);
+    }
+
+    renderCard();
+  }
+
+  /* Built with Agents easter egg */
+  const colophon=document.querySelector('#colophon');
+  const agentsToggle=document.querySelector('.agents-toggle');
+  if(colophon&&agentsToggle){
+    agentsToggle.addEventListener('click',()=>{
+      const open=colophon.hidden;
+      colophon.hidden=!open;
+      agentsToggle.setAttribute('aria-expanded',String(open));
+    });
+  }
+
+  /* lightbox — photography & food panels */
+  const lightbox=document.querySelector('.lightbox');
+  if(lightbox){
+    const lbImg=lightbox.querySelector('img');
+    const lbCap=lightbox.querySelector('.lb-cap');
+    let lbList=[],lbIndex=0,lbLastFocus=null;
+    const lbShow=i=>{
+      lbIndex=(i+lbList.length)%lbList.length;
+      const fig=lbList[lbIndex];
+      const img=fig.querySelector('img');
+      lbImg.src=img.src;lbImg.alt=img.alt;
+      const cap=fig.querySelector('figcaption')||fig.querySelector('.lead-cover strong');
+      lbCap.textContent=cap?cap.textContent:'';
+    };
+    const lbOpen=(list,i)=>{
+      lbList=list;lbLastFocus=document.activeElement;
+      lbShow(i);
+      lightbox.hidden=false;
+      document.body.style.overflow='hidden';
+      lightbox.querySelector('.lb-close').focus();
+    };
+    const lbClose=()=>{
+      lightbox.hidden=true;
+      document.body.style.overflow='';
+      if(lbLastFocus)lbLastFocus.focus();
+    };
+    document.querySelectorAll('.life-panel').forEach(panel=>{
+      const figs=[...panel.querySelectorAll('.life-lead figure,.life-grid figure')];
+      figs.forEach((fig,i)=>fig.addEventListener('click',()=>lbOpen(figs,i)));
+    });
+    lightbox.querySelector('.lb-close').addEventListener('click',lbClose);
+    lightbox.querySelector('.lb-prev').addEventListener('click',()=>lbShow(lbIndex-1));
+    lightbox.querySelector('.lb-next').addEventListener('click',()=>lbShow(lbIndex+1));
+    lightbox.addEventListener('click',e=>{if(e.target===lightbox)lbClose()});
+    addEventListener('keydown',e=>{
+      if(lightbox.hidden)return;
+      if(e.key==='Escape')lbClose();
+      if(e.key==='ArrowLeft')lbShow(lbIndex-1);
+      if(e.key==='ArrowRight')lbShow(lbIndex+1);
+    });
+  }
+
+  /* timeline scroll progress — 路径随滚动生长 */
+  const tl=document.querySelector('.timeline-wrap');
+  const tlProg=document.querySelector('.timeline-progress');
+  if(tl&&tlProg){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+      tlProg.style.transform='scaleY(1)';
+    }else{
+      let tlTicking=false;
+      const tlUpdate=()=>{
+        tlTicking=false;
+        const r=tl.getBoundingClientRect();
+        const passed=Math.min(Math.max(innerHeight*.72-r.top,0),r.height);
+        tlProg.style.transform=`scaleY(${passed/r.height})`;
+      };
+      const tlOnScroll=()=>{if(!tlTicking){tlTicking=true;requestAnimationFrame(tlUpdate)}};
+      tlUpdate();
+      addEventListener('scroll',tlOnScroll,{passive:true});
+      addEventListener('resize',tlOnScroll);
+    }
+  }
 </script>
 </body>
 </html>
