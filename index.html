@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="张馨丹，产品经理。关注产品机制、用户信任与数据驱动的体验优化。">
+  <meta name="description" content="张馨丹，产品经理。关注用户问题、业务目标与可用体验之间的连接。">
   <meta name="theme-color" content="#1f3348">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231f3348'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23c98a1b' font-weight='500'%3E馨%3C/text%3E%3C/svg%3E">
   <title>张馨丹｜产品经理 · 一个东北金牛的作品集</title>
@@ -222,7 +222,8 @@
     .edu p{color:var(--muted);font-size:14px}
 
     /* projects */
-    .projects{margin-top:100px;border-top:1px solid var(--line-strong);padding-top:28px}
+    .projects-section{padding-top:90px}
+    .projects{border-top:1px solid var(--line-strong);padding-top:28px}
     .projects-head{display:grid;grid-template-columns:220px 1fr;gap:36px;margin-bottom:22px}
     .projects-head h3{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1.2}
     .projects-head p{max-width:560px;color:var(--muted);font-size:14px}
@@ -337,7 +338,8 @@
     /* responsive */
     @media(max-width:960px){
       .hero-inner{grid-template-columns:1fr;gap:20px;padding:110px 0 80px}
-      .hero-stage{height:360px;order:-1}
+      .hero-inner>div{min-width:0}
+      .hero-stage{width:100%;height:360px;order:-1}
       .hero-tag{font-size:10px;padding:4px 8px;transform:none!important}
       .hero-eyebrow{font-size:10px;letter-spacing:.2em}
       .tag-work{top:4%;right:2%}
@@ -389,6 +391,195 @@
       .site-header,.hero-scroll,.hero-actions,.contact,.strip{display:none}
       .hero{min-height:auto;background:#fff;color:#000}
     }
+
+    /* v2 narrative system: soft containers are reserved for media and interaction stages */
+    .nav-links a{border-radius:999px;padding:8px 13px;transition:background .25s,color .25s}
+    .nav-links a.active{background:var(--ink);color:#fff}
+    .site-header.scrolled .nav-links a.active{background:var(--gold);color:#fff}
+    .chapter-intro{max-width:760px;margin-bottom:64px}
+    .chapter-intro h2{font-family:var(--serif);font-size:clamp(48px,6vw,78px);font-weight:500;line-height:1;margin-bottom:22px}
+    .chapter-intro h2 em{font-style:normal;color:var(--peacock);font-weight:400}
+    .chapter-intro p{font-size:17px;color:var(--muted);max-width:620px}
+
+    /* experience: alternating editorial rows with one controlled media ratio */
+    .journey{padding-bottom:80px}
+    .journey-grid{display:grid;gap:84px}
+    .journey-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(360px,4fr);gap:clamp(44px,7vw,100px);align-items:center;position:relative}
+    .journey-row:nth-child(even) .journey-copy{order:2}
+    .journey-row:nth-child(even) .journey-media{order:1}
+    .journey-copy{padding-left:70px;position:relative}
+    .journey-index{position:absolute;left:0;top:0;font:42px/1 var(--serif);color:var(--gold)}
+    .journey-time{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--peacock);display:block;margin-bottom:10px}
+    .journey-copy h3{font:500 clamp(30px,3vw,44px)/1.12 var(--serif);margin-bottom:8px}
+    .journey-company{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:20px}
+    .journey-copy p{color:var(--ink-soft);max-width:600px}
+    .journey-proof{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+    .journey-proof span{border:1px solid var(--line-strong);border-radius:999px;padding:6px 11px;font:11px var(--mono);color:var(--muted);background:rgba(255,255,255,.4)}
+    .journey-media{aspect-ratio:4/3;position:relative;overflow:hidden;border-radius:22px;background:var(--canvas-warm);box-shadow:0 28px 60px rgba(31,51,72,.13);cursor:zoom-in}
+    .journey-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+    .journey-media:hover img{transform:scale(1.035)}
+    .journey-media figcaption{position:absolute;inset:auto 16px 16px;display:flex;justify-content:space-between;gap:18px;padding:12px 14px;border-radius:14px;background:rgba(251,246,236,.9);backdrop-filter:blur(12px);font:10px var(--mono);letter-spacing:.08em;color:var(--ink)}
+
+    /* education: image-like typographic panels without inventing campus photography */
+    .education-chapter{padding:90px 0 120px;background:var(--canvas-warm)}
+    .education-stage{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+    .edu-panel{min-height:420px;border-radius:22px;overflow:hidden;position:relative;padding:42px;display:flex;flex-direction:column;justify-content:flex-end}
+    .edu-panel:first-child{background:var(--peacock-dk);color:#fff}
+    .edu-panel:last-child{background:var(--gold);color:#fff;margin-top:90px}
+    .edu-monogram{position:absolute;right:-20px;top:-54px;font:260px/.9 var(--serif);opacity:.11}
+    .edu-panel .meta{font:11px var(--mono);letter-spacing:.15em;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+    .edu-panel h3{font:500 clamp(36px,4vw,58px)/1 var(--serif);margin-bottom:18px}
+    .edu-panel p{max-width:420px;color:inherit;opacity:.82}
+    .edu-facts{display:flex;gap:24px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.24)}
+    .edu-facts b{display:block;font:24px var(--serif);font-weight:500}
+    .edu-facts span{font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+
+    /* cases: one large interactive stage, not three repeated cards */
+    .work{padding:110px 0 120px}
+    .showcase-shell{border-radius:24px;background:#f7f0e3;color:var(--ink);overflow:hidden;box-shadow:0 34px 80px rgba(0,0,0,.22)}
+    .showcase-nav{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+    .showcase-tab{padding:20px 24px;text-align:left;border-right:1px solid var(--line);position:relative;background:rgba(255,255,255,.32)}
+    .showcase-tab:last-child{border-right:0}
+    .showcase-tab small{display:block;font:10px var(--mono);letter-spacing:.16em;color:var(--muted);margin-bottom:5px}
+    .showcase-tab strong{font:500 18px var(--serif)}
+    .showcase-tab[aria-selected="true"]{background:var(--gold);color:#fff}
+    .showcase-tab[aria-selected="true"] small{color:rgba(255,255,255,.72)}
+    .showcase-viewport{position:relative}
+    .showcase-panel{display:none;grid-template-columns:minmax(280px,4fr) minmax(0,6fr);gap:44px;padding:48px;min-height:600px;align-items:center}
+    .showcase-panel.active{display:grid;animation:case-in .5s cubic-bezier(.16,1,.3,1) both}
+    @keyframes case-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .case-copy .case-no{font-size:36px;color:var(--gold);margin-bottom:24px}
+    .case-copy h3{font:500 clamp(32px,3.4vw,50px)/1.08 var(--serif);margin-bottom:18px}
+    .case-copy p{color:var(--ink-soft);margin-bottom:26px}
+    .case-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--line);padding-top:20px}
+    .case-meta b{display:block;font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:5px}
+    .case-meta span{font-size:13px;color:var(--muted)}
+    .case-stage{min-width:0;border-radius:18px;background:var(--white);padding:18px;box-shadow:0 18px 48px rgba(31,51,72,.14)}
+    .aui-caption{font:9px var(--mono);color:var(--muted);letter-spacing:.04em;margin:0;text-align:center}
+    .showcase-controls{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-top:1px solid var(--line)}
+    .showcase-count{font:11px var(--mono);letter-spacing:.14em;color:var(--muted)}
+    .showcase-arrows{display:flex;gap:8px}
+    .showcase-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;font-size:18px;transition:.2s}
+    .showcase-arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .aui-demo{gap:8px}.aui-window{box-shadow:none;border-color:var(--line)}
+
+    /* confirmation prototype */
+    .confirm-demo{min-height:430px;display:grid;place-items:center;background:linear-gradient(145deg,#eef2f4,#faf7ef);border-radius:12px;padding:24px}
+    .confirm-card{width:min(100%,440px);border-radius:16px;background:#fff;border:1px solid #dde3e6;box-shadow:0 20px 50px rgba(31,51,72,.14);overflow:hidden}
+    .confirm-head{padding:18px 20px;border-bottom:1px solid #e7ebed;display:flex;align-items:center;gap:12px}
+    .confirm-icon{width:34px;height:34px;border-radius:10px;background:#f8e8c5;color:var(--gold-dk);display:grid;place-items:center;font-weight:700}
+    .confirm-head strong{font-size:15px}.confirm-head span{display:block;font-size:11px;color:var(--muted)}
+    .confirm-body{padding:20px}.confirm-body p{font-size:14px;color:var(--ink-soft);margin-bottom:16px}
+    .confirm-detail{display:grid;gap:8px;padding:14px;background:#f5f6f4;border-radius:10px;font-size:12px;color:var(--muted)}
+    .confirm-detail b{color:var(--ink);font-weight:500}
+    .confirm-actions{display:flex;gap:8px;justify-content:flex-end;padding:16px 20px;border-top:1px solid #e7ebed}
+    .confirm-actions button{border:1px solid #d3dadd;border-radius:999px;padding:8px 14px;font-size:12px}
+    .confirm-actions .confirm-primary{background:var(--peacock);border-color:var(--peacock);color:#fff}
+    .confirm-feedback{min-height:22px;text-align:center;font:11px var(--mono);color:var(--peacock);margin-top:14px}
+
+    /* artifact preview prototype */
+    .preview-demo{min-height:430px;border-radius:12px;background:#eef1f2;overflow:hidden;border:1px solid #dde3e6}
+    .preview-bar{height:54px;background:#fff;border-bottom:1px solid #dde3e6;display:flex;align-items:center;padding:0 16px;gap:8px}
+    .preview-bar strong{margin-right:auto;font-size:13px}
+    .preview-tab{font:10px var(--mono);padding:7px 10px;border-radius:999px;color:var(--muted)}
+    .preview-tab.active{background:var(--ink);color:#fff}
+    .preview-pane{display:none;height:374px;padding:18px}.preview-pane.active{display:block}
+    .sheet{height:100%;background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 10px 30px rgba(31,51,72,.08)}
+    .sheet-row{display:grid;grid-template-columns:55px 1.4fr 1fr 1fr;border-bottom:1px solid #edf0f1;font-size:11px}
+    .sheet-row span{padding:10px;border-right:1px solid #edf0f1}.sheet-row:first-child{background:#e9f0ec;font-weight:600;color:var(--ink)}
+    .code-view{height:100%;border-radius:9px;background:#1f2930;color:#d7e0e5;padding:20px;font:12px/1.8 var(--mono);white-space:pre-wrap}
+    .code-view i{color:#e4b65c;font-style:normal}.code-view b{color:#85b5d4;font-weight:400}
+    .pdf-view{height:100%;background:#dfe3e5;padding:20px;display:grid;place-items:center;border-radius:9px}
+    .pdf-page{width:62%;height:100%;background:#fff;padding:28px;box-shadow:0 8px 28px rgba(31,51,72,.15)}
+    .pdf-page h4{font:24px var(--serif);margin-bottom:18px}.pdf-line{height:6px;background:#e8ecee;margin-bottom:9px}.pdf-line.short{width:64%}
+
+    /* compact project index */
+    .project-index{margin-top:34px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
+    .project-chip{width:100%;text-align:left;border:1px solid rgba(255,255,255,.16);padding:20px;border-radius:16px;color:#fff;position:relative;transition:background .2s,border-color .2s,transform .2s}
+    .project-chip::after{content:"↗";position:absolute;right:18px;top:18px;color:var(--gold-soft);transition:transform .2s}
+    .project-chip:hover,.project-chip[aria-expanded="true"]{background:rgba(255,255,255,.08);border-color:var(--gold-soft);transform:translateY(-2px)}
+    .project-chip[aria-expanded="true"]::after{transform:rotate(90deg)}
+    .project-chip b{font:500 19px var(--serif);display:block;margin:0 28px 6px 0}.project-chip span{font:10px var(--mono);letter-spacing:.08em;color:#bdc9d1}
+    .project-details{margin-top:14px}
+    .project-panel{display:none;grid-template-columns:160px 1fr 1fr;gap:28px;padding:28px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff}
+    .project-panel.active{display:grid;animation:case-in .35s cubic-bezier(.16,1,.3,1) both}
+    .project-panel .project-mark{font:48px/1 var(--serif);color:var(--gold-soft)}
+    .project-panel h4{font:500 25px/1.2 var(--serif);margin-bottom:10px}
+    .project-panel p{font-size:14px;color:#c4cfd5}
+    .project-panel dl{display:grid;gap:12px}
+    .project-panel dt{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft)}
+    .project-panel dd{font-size:13px;color:#d6dee2;margin:2px 0 0}
+
+    /* capability deck */
+    .cap-wrap{padding:120px 0;background:var(--canvas-warm)}
+    .cap-lab{display:grid;grid-template-columns:minmax(260px,4fr) minmax(420px,6fr);gap:clamp(48px,8vw,110px);align-items:center}
+    .deck-side h2{font:500 clamp(48px,6vw,76px)/1 var(--serif);margin-bottom:20px}.deck-side h2 em{font-style:normal;color:var(--peacock)}
+    .deck-side>p{color:var(--muted);max-width:480px;margin-bottom:30px}
+    .deck-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+    .draw-btn,.flip-btn{border-radius:999px;padding:12px 18px;font-weight:600;font-size:13px;border:1px solid var(--ink)}
+    .draw-btn{background:var(--ink);color:#fff}.flip-btn{background:transparent}
+    .cap-directory{display:flex;gap:8px;flex-wrap:wrap}
+    .cap-pick{border:1px solid var(--line-strong);border-radius:999px;padding:7px 11px;font:10px var(--mono);color:var(--muted)}
+    .cap-pick.active{background:var(--gold);border-color:var(--gold);color:#fff}
+    .deck-stage{min-height:520px;position:relative;display:grid;place-items:center;perspective:1400px}
+    .deck-shadow{position:absolute;width:72%;height:74%;border-radius:22px;background:var(--peacock);transform:translate(-36px,20px) rotate(-7deg);opacity:.55}
+    .deck-shadow.two{background:var(--gold);transform:translate(35px,24px) rotate(6deg);opacity:.5}
+    .cap-card{width:min(100%,520px);height:440px;position:relative;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.16,1,.3,1);z-index:2}
+    .cap-card.flipped{transform:rotateY(180deg)}
+    .cap-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;padding:42px;background:var(--peacock-dk);color:#fff;box-shadow:0 30px 70px rgba(31,51,72,.25);display:flex;flex-direction:column}
+    .cap-back{transform:rotateY(180deg);background:#fff;color:var(--ink)}
+    .cap-kicker{font:10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft)}
+    .cap-front h3{font:500 clamp(42px,5vw,62px)/1.03 var(--serif);margin:auto 0 22px}.cap-front p{color:#c6d0d6}
+    .cap-back h4{font:500 34px var(--serif);margin:18px 0 26px}.cap-evidence{display:grid;gap:14px}.cap-evidence li{list-style:none;padding:14px 0;border-top:1px solid var(--line);color:var(--ink-soft)}
+    .cap-link{margin-top:auto;color:var(--gold-dk);font:11px var(--mono);letter-spacing:.08em;text-underline-offset:4px}
+
+    /* contact: balanced action console */
+    .contact-inner{align-items:stretch}
+    .contact-copy{display:flex;flex-direction:column;justify-content:flex-end}
+    .contact-console{border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:26px;background:rgba(255,255,255,.08);display:flex;flex-direction:column;justify-content:space-between;min-height:390px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .contact-status{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.16)}
+    .contact-status span{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#d3e0e4}
+    .status-live{display:inline-flex!important;align-items:center;gap:7px;color:var(--gold-soft)!important}
+    .status-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
+    .contact-email{padding:30px 0}
+    .contact-email b{display:block;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px}
+    .contact-email a{font:500 clamp(22px,2.4vw,34px)/1.2 var(--serif);color:#fff;text-decoration:none;overflow-wrap:anywhere}
+    .contact-email p{font-size:13px;margin:12px 0 0;color:#d0dde1}
+    .contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .contact-action{min-height:48px;border:1px solid rgba(255,255,255,.24);border-radius:999px;color:#fff;padding:10px 16px;font-size:13px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.2s}
+    .contact-action.primary{background:var(--gold);border-color:var(--gold)}
+    .contact-action:hover{background:#fff;border-color:#fff;color:var(--peacock-dk)}
+    .contact-note{font:10px var(--mono);letter-spacing:.08em;color:#bcd0d6;margin-top:14px;text-align:center;min-height:18px}
+
+    /* shared media language */
+    .life-lead figure,.life-grid figure{border-radius:18px}
+    .life-grid figure{aspect-ratio:4/3}
+    [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+    [data-reveal].visible{opacity:1;transform:none}
+
+    @media(max-width:960px){
+      .nav-links a{border-radius:10px}
+      .journey-grid{gap:62px}.journey-row{grid-template-columns:1fr;gap:26px}.journey-row:nth-child(even) .journey-copy,.journey-row:nth-child(even) .journey-media{order:initial}
+      .journey-media{width:100%;aspect-ratio:4/3}.journey-copy{padding-left:54px}
+      .education-stage{grid-template-columns:1fr}.edu-panel:last-child{margin-top:0}.edu-panel{min-height:350px;padding:30px}
+      .showcase-nav{display:flex;overflow-x:auto}.showcase-tab{min-width:220px;flex:1}
+      .showcase-panel{grid-template-columns:1fr;padding:28px;min-height:0}.case-stage{padding:10px}.showcase-shell{border-radius:18px}
+      .project-index{grid-template-columns:1fr}
+      .project-panel{grid-template-columns:1fr}.project-panel .project-mark{font-size:36px}
+      .cap-lab{grid-template-columns:1fr}.deck-stage{min-height:470px}.cap-card{height:410px}
+    }
+    @media(max-width:560px){
+      .chapter-intro{margin-bottom:42px}.journey-grid{gap:52px}.journey-copy{padding-left:44px}.journey-index{font-size:32px}
+      .journey-media figcaption{inset:auto 10px 10px;padding:10px;font-size:9px}.edu-panel{min-height:310px;padding:24px}.edu-monogram{font-size:190px}
+      .showcase-panel{padding:22px}.showcase-tab{min-width:180px;padding:16px}.case-meta{grid-template-columns:1fr}.confirm-demo{padding:10px;min-height:400px}
+      .preview-pane{padding:10px}.pdf-page{width:84%}.sheet-row{grid-template-columns:42px 1.4fr 1fr}.sheet-row span:last-child{display:none}
+      .cap-face{padding:28px}.cap-card{height:390px}.deck-stage{min-height:440px}.deck-shadow{width:82%}
+      .contact-console{min-height:330px}.contact-actions{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .showcase-panel.active{animation:none}.cap-card{transition:none}[data-reveal]{opacity:1;transform:none;transition:none}
+      .journey-media img{transition:none}
+    }
   </style>
 </head>
 <body>
@@ -398,8 +589,8 @@
   <a class="brand" href="#top"><span class="brand-mark">馨</span> zhang xindan</a>
   <button class="menu" aria-label="打开导航菜单" aria-expanded="false"><span></span><span></span></button>
   <div class="nav-links">
-    <a href="#work">代表工作</a>
     <a href="#experience">经历</a>
+    <a href="#work">案例</a>
     <a href="#capabilities">能力</a>
     <a href="#life">生活</a>
     <a href="mailto:zhang_xin_dan@163.com" class="nav-cta">联系我</a>
@@ -412,9 +603,9 @@
       <div>
         <div class="hero-eyebrow">Product Manager · Class of 2027</div>
         <h1>从看得到的问题，<br>到 <em>用得上的答案</em>。</h1>
-        <p class="hero-lead">你好，我是张馨丹。工作里我关心产品机制是否成立、用户是否理解并信任它；下班后我更愿意在路上、在厨房里，把日子过得踏实。</p>
+        <p class="hero-lead">你好，我是张馨丹，一名喜欢把复杂问题拆清楚、把抽象需求落到真实体验里的产品经理。我习惯在用户、业务与技术之间建立共同语言，并用研究、数据和协作把方案推进到可用结果。</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#work">看看代表工作 <span aria-hidden="true">↓</span></a>
+          <a class="btn primary" href="#experience">了解我的经历 <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <div class="hero-stage">
@@ -443,113 +634,87 @@
     <span>PRODUCT<i>01</i></span><span>AGENTS<i>02</i></span><span>DATA<i>03</i></span><span>DESIGN JUDGMENT<i>04</i></span><span>USER TRUST<i>05</i></span><span>OFF THE CLOCK<i>06</i></span>
   </div></div>
 
+  <section class="section journey" id="experience"><div class="wrap">
+    <header class="chapter-intro" data-reveal>
+      <h2>经历不是列表，<br>是能力形成的<em>路径</em>。</h2>
+      <p>从一线运营、工程研究到平台与 AI 产品，每段经历都留下了一种处理问题的方法。影像只记录阶段与城市，不替代工作证据。</p>
+    </header>
+    <div class="journey-grid">
+      <article class="journey-row" data-reveal>
+        <div class="journey-copy"><span class="journey-index">01</span><time class="journey-time">2026.05 — 至今</time><h3>AI 产品经理</h3><div class="journey-company">小红书 · 企业智能部</div><p>参与公司级 AI 办公产品 Hi-work 建设，从信息补全、关键操作到产物交付梳理核心体验，并协同设计与研发完成方案验证。</p><div class="journey-proof"><span>Agent 交互</span><span>体验闭环</span><span>跨团队推进</span></div></div>
+        <figure class="journey-media" tabindex="0"><img src="assets/photos/portrait/hero-window.jpg" alt="张馨丹在窗边的个人影像" loading="lazy"><figcaption><span>阶段影像 · 2026</span><span>把复杂机制翻译成可用体验</span></figcaption></figure>
+      </article>
+      <article class="journey-row" data-reveal>
+        <div class="journey-copy"><span class="journey-index">02</span><time class="journey-time">2026.01 — 2026.04</time><h3>产品经理</h3><div class="journey-company">百度 · 内容产品部</div><p>负责百家号运营平台多模块迭代，结合竞品、问卷与行为数据识别运营问题，推动 10+ 需求上线，并搭建平台专属 AI 客服。</p><div class="journey-proof"><span>10+ 需求上线</span><span>平台产品</span><span>AI 客服</span></div></div>
+        <figure class="journey-media" tabindex="0"><img src="assets/photos/portrait/hero-snow.jpg" alt="张馨丹在雪地中的个人影像" loading="lazy"><figcaption><span>阶段影像 · 北京</span><span>从反馈中寻找平台共性问题</span></figcaption></figure>
+      </article>
+      <article class="journey-row" data-reveal>
+        <div class="journey-copy"><span class="journey-index">03</span><time class="journey-time">2024.10 — 2025.01</time><h3>前沿研究员</h3><div class="journey-company">中航成飞研究所 · 经管中心</div><p>面向工程管理场景搭建多模型集成预测框架，梳理数据输入、分析结果与使用流程，并将算法封装为可视化决策辅助工具。</p><div class="journey-proof"><span>模型产品化</span><span>工程场景</span><span>可视化工具</span></div></div>
+        <figure class="journey-media" tabindex="0"><img src="assets/photos/portrait/hero-overlook.jpg" alt="张馨丹眺望城市的个人影像" loading="lazy"><figcaption><span>阶段影像 · 成都</span><span>让模型走出代码环境</span></figcaption></figure>
+      </article>
+      <article class="journey-row" data-reveal>
+        <div class="journey-copy"><span class="journey-index">04</span><time class="journey-time">2023.10 — 2026.12</time><h3>运营实习生</h3><div class="journey-company">作业帮 · 线上业务中心</div><p>从一线运营问题切入，用漏斗与归因分析定位新人培训和留存环节的阻塞点，协助重构流程，推动结训通过率环比提升约 5pp。</p><div class="journey-proof"><span>漏斗分析</span><span>流程优化</span><span>+5pp</span></div></div>
+        <figure class="journey-media" tabindex="0"><img src="assets/photos/portrait/hero-mountain.jpg" alt="张馨丹在山野中的个人影像" loading="lazy"><figcaption><span>阶段影像 · 校园</span><span>从一线问题开始理解用户</span></figcaption></figure>
+      </article>
+    </div>
+  </div></section>
+
+  <section class="education-chapter" id="education"><div class="wrap">
+    <header class="chapter-intro" data-reveal><h2>两段教育，<br>一条<em>交叉学科</em>坐标。</h2><p>信息系统训练我连接业务与技术，管理科学让我用优化与建模理解复杂决策。</p></header>
+    <div class="education-stage" data-reveal>
+      <article class="edu-panel"><span class="edu-monogram" aria-hidden="true">E</span><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程，研究方向包括运筹优化与强化学习。</p><div class="edu-facts"><div><b>3.96</b><span>GPA / 4.0</span></div><div><b>交叉</b><span>管理 × 算法</span></div></div></article>
+      <article class="edu-panel"><span class="edu-monogram" aria-hidden="true">N</span><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统，从系统分析、数据到产品设计建立完整基础。</p><div class="edu-facts"><div><b>Top 5%</b><span>专业成绩</span></div><div><b>6 项</b><span>国家 / 省级竞赛奖</span></div></div></article>
+    </div>
+  </div></section>
+
   <section class="work section" id="work"><div class="wrap">
-    <div class="section-head">
-      <div><span class="kicker">Selected work</span><h2>代表<em>工作</em></h2></div>
-      <p>围绕公司级 AI 办公产品 Hi-work，我参与 Super Agent 核心链路建设，并独立负责交互、安全与体验优化方向的需求设计。</p>
+    <header class="chapter-intro" data-reveal><h2>一个舞台，<br>三种<em>产品判断</em>。</h2><p>选择标题切换案例。每个案例都保留可操作的体验，而不是只展示一段结论。</p></header>
+    <div class="showcase-shell" data-reveal>
+      <div class="showcase-nav" role="tablist" aria-label="代表案例">
+        <button class="showcase-tab" role="tab" aria-selected="true" aria-controls="case-panel-1"><small>01 · 交互</small><strong>AskUserInput</strong></button>
+        <button class="showcase-tab" role="tab" aria-selected="false" aria-controls="case-panel-2"><small>02 · 机制</small><strong>操作确认</strong></button>
+        <button class="showcase-tab" role="tab" aria-selected="false" aria-controls="case-panel-3"><small>03 · 交付</small><strong>产物预览</strong></button>
+      </div>
+      <div class="showcase-viewport">
+        <article class="showcase-panel active" id="case-panel-1" role="tabpanel">
+          <div class="case-copy"><div class="case-no">01</div><h3>在关键时刻，正确地向人提问</h3><p>把低效的往返追问整理成结构化交互，让用户更容易表达真实需求，也让后续执行获得可靠输入。</p><div class="case-meta"><div><b>我的工作</b><span>问题抽象、交互设计、流程验证</span></div><div><b>核心取舍</b><span>表达效率与用户控制感</span></div></div></div>
+          <div class="case-stage"><div class="aui-demo">
+            <div class="aui-window"><div class="aui-titlebar"><span class="aui-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="aui-title">Hi-work · 网站导览</span><span class="aui-live">可操作</span></div>
+              <div class="aui-stream" data-stream aria-live="polite"><div class="aui-task"><b>任务</b>接待网站访客，先确认关注点再给出口播介绍</div><div class="aui-think"><b>思路</b>访客画像未知。通过三张卡片逐一收集关键信息。</div><div class="aui-msg"><span class="aui-avatar" aria-hidden="true">丹</span><div class="aui-bubble">欢迎来到我的主页。先用 3 个小问题确认你的关注点。</div></div><div class="aui-statusline" data-status><span class="aui-spin" aria-hidden="true"></span>正在询问用户关键信息…</div><div class="aui-card" data-card></div></div>
+            </div><p class="aui-caption">可操作原型 · 单选、多选与排序</p>
+          </div></div>
+        </article>
+        <article class="showcase-panel" id="case-panel-2" role="tabpanel" hidden>
+          <div class="case-copy"><div class="case-no">02</div><h3>让关键操作既高效，也始终可控</h3><p>识别真正需要用户参与决策的节点，用分层确认和清晰反馈减少误操作，也避免把每一步都变成打断。</p><div class="case-meta"><div><b>我的工作</b><span>场景归纳、机制设计、状态定义</span></div><div><b>核心取舍</b><span>执行效率与控制感</span></div></div></div>
+          <div class="case-stage"><div class="confirm-demo"><div><div class="confirm-card"><div class="confirm-head"><span class="confirm-icon">!</span><div><strong>发送前需要你的确认</strong><span>此操作会影响会话外的对象</span></div></div><div class="confirm-body"><p>Agent 准备向项目群发送一份总结。</p><div class="confirm-detail"><span><b>对象</b> 项目协作群</span><span><b>内容</b> 会议结论与 3 项待办</span><span><b>影响</b> 发送后群成员可见</span></div></div><div class="confirm-actions"><button type="button" data-confirm="cancel">取消</button><button type="button" data-confirm="once">仅本次允许</button><button type="button" class="confirm-primary" data-confirm="send">确认发送</button></div></div><p class="confirm-feedback" aria-live="polite">选择一个操作，查看状态反馈</p></div></div></div>
+        </article>
+        <article class="showcase-panel" id="case-panel-3" role="tabpanel" hidden>
+          <div class="case-copy"><div class="case-no">03</div><h3>让生成的产物真正方便查看和使用</h3><p>从结果消费链路出发，统一不同文件类型的预览入口与状态反馈，并按使用频率和依赖关系安排迭代。</p><div class="case-meta"><div><b>我的工作</b><span>体验走查、优先级、验收框架</span></div><div><b>覆盖范围</b><span>多产物类型与多端场景</span></div></div></div>
+          <div class="case-stage"><div class="preview-demo"><div class="preview-bar"><strong>季度复盘产物</strong><button class="preview-tab active" data-preview="sheet">CSV</button><button class="preview-tab" data-preview="code">Code</button><button class="preview-tab" data-preview="pdf">PDF</button></div>
+            <div class="preview-pane active" data-pane="sheet"><div class="sheet"><div class="sheet-row"><span>#</span><span>任务</span><span>Owner</span><span>状态</span></div><div class="sheet-row"><span>01</span><span>用户反馈聚类</span><span>产品</span><span>完成</span></div><div class="sheet-row"><span>02</span><span>关键链路走查</span><span>体验</span><span>完成</span></div><div class="sheet-row"><span>03</span><span>移动端补齐</span><span>研发</span><span>进行中</span></div><div class="sheet-row"><span>04</span><span>验收口径同步</span><span>协作组</span><span>待确认</span></div></div></div>
+            <div class="preview-pane" data-pane="code"><div class="code-view"><i>// preview validation</i>\n<b>const</b> artifact = {\n  type: 'code',\n  status: 'ready',\n  fallback: 'download'\n};\n\n<b>validate</b>(artifact);</div></div>
+            <div class="preview-pane" data-pane="pdf"><div class="pdf-view"><div class="pdf-page"><h4>体验复盘</h4><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line short"></div><br><div class="pdf-line"></div><div class="pdf-line short"></div><div class="pdf-line"></div></div></div></div>
+          </div></div>
+        </article>
+      </div>
+      <div class="showcase-controls"><span class="showcase-count">01 / 03</span><div class="showcase-arrows"><button class="showcase-arrow" data-case-dir="-1" aria-label="上一个案例">←</button><button class="showcase-arrow" data-case-dir="1" aria-label="下一个案例">→</button></div></div>
     </div>
-    <div class="cases">
-      <article class="case"><div class="case-no">01</div><div class="case-body">
-        <div>
-          <span class="case-tag">Human–Agent Interaction</span>
-          <h3>让 Agent 在关键时刻，正确地向人提问</h3>
-          <p>针对纯文本确认成本高、多轮沟通效率低的问题，负责 AskUserInput 交互卡片：从真实任务抽象单选、多选、排序和自定义输入范式，并结合 Agent loop 生命周期、跨端与会话同步约束，推动方案收敛为消息流卡片与结构化信息回传。</p>
-          <ul><strong>把「聊天控件」设计成 Agent 能力</strong>
-            <li>独立完成 PRD 与交互 Demo</li>
-            <li>多轮跨产品、设计、研发对齐</li>
-            <li>覆盖状态、版本与异常路径</li>
-          </ul>
-        </div>
-        <div class="aui-demo">
-          <div class="aui-window">
-            <div class="aui-titlebar">
-              <span class="aui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="aui-title">Hi-work · 网站导览</span>
-              <span class="aui-live">交互演示</span>
-            </div>
-            <div class="aui-stream" data-stream aria-live="polite">
-              <div class="aui-task"><b>任务</b>接待网站访客，先确认关注点再给出口播介绍</div>
-              <div class="aui-think"><b>思路</b>访客画像未知。调用 ask_user_input，通过三张卡片逐一收集关键信息，再统一组织介绍口径。</div>
-              <div class="aui-msg">
-                <span class="aui-avatar" aria-hidden="true">丹</span>
-                <div class="aui-bubble">欢迎来到我的主页。在深入介绍之前，我想先快速确认你的关注点 —— 3 个小问题：</div>
-              </div>
-              <div class="aui-statusline" data-status><span class="aui-spin" aria-hidden="true"></span>正在询问用户关键信息…</div>
-              <div class="aui-card" data-card></div>
-            </div>
-          </div>
-          <p class="aui-caption">交互演示 · 还原真实场景中 AskUserInput 卡片的主要流程</p>
-        </div>
-      </div></article>
-      <article class="case"><div class="case-no">02</div><div class="case-body">
-        <div>
-          <span class="case-tag">Trust &amp; Safety</span>
-          <h3>给 Agent 的自主执行，建立清晰边界</h3>
-          <p>针对 Agent 调用工具产生的外发、不可逆及敏感操作，设计基于"tool 调用 + 执行参数"的操作确认机制；从信任边界、可逆性、影响范围和敏感度四个维度建立风险分级，并形成"工程规则 + 智能兜底"的判定策略。</p>
-        </div>
-        <ul><strong>在效率与可控之间做产品取舍</strong>
-          <li>构建风险分级与审批矩阵</li>
-          <li>覆盖预置及开放能力场景</li>
-          <li>让确认发生在真正必要的节点</li>
-        </ul>
-      </div></article>
-      <article class="case"><div class="case-no">03</div><div class="case-body">
-        <div>
-          <span class="case-tag">Experience Loop</span>
-          <h3>从上线验收到持续优化，建立体验闭环</h3>
-          <p>围绕"有用、好用、可信"的目标，结合用户反馈、NPS 问卷、线上 case 与竞品研究定位关键问题，推进长内容输入、产物预览等专项优化；搭建多端、多产物类型的验收框架，形成问题分级与迭代优先级。</p>
-        </div>
-        <ul><strong>不只交付功能，也验证体验</strong>
-          <li>覆盖 PC、iOS、Android</li>
-          <li>兼顾输入、执行与产物交付链路</li>
-          <li>以优先级驱动全量后优化</li>
-        </ul>
-      </div></article>
+    <div class="project-index" data-reveal aria-label="项目选集">
+      <button class="project-chip" id="project-tab-campus" type="button" aria-expanded="false" aria-controls="project-campus" data-project="campus"><b>智慧学工系统</b><span>产品设计 · 团队统筹 · 流程与原型</span></button>
+      <button class="project-chip" id="project-tab-search" type="button" aria-expanded="false" aria-controls="project-search" data-project="search"><b>旅游搜索引擎</b><span>项目组长 · 0 → 1 完整搜索链路</span></button>
+      <button class="project-chip" id="project-tab-private" type="button" aria-expanded="false" aria-controls="project-private" data-project="private"><b>私域运营分析</b><span>数据分析负责人 · 467 份问卷</span></button>
+    </div>
+    <div class="project-details">
+      <article class="project-panel" id="project-campus" role="tabpanel" aria-labelledby="project-tab-campus" hidden><div class="project-mark">01</div><div><h4>智慧学工系统分析与设计</h4><p>围绕学生、辅导员、教师和管理员梳理业务流程，负责学生信息管理、工作流配置与轻分析等模块，并参与团队统筹。</p></div><dl><div><dt>角色</dt><dd>产品设计 · 团队统筹</dd></div><div><dt>交付</dt><dd>核心流程、交互原型与低代码实现</dd></div><div><dt>能力证据</dt><dd>复杂角色梳理、产品定义、协作推进</dd></div></dl></article>
+      <article class="project-panel" id="project-search" role="tabpanel" aria-labelledby="project-tab-search" hidden><div class="project-mark">02</div><div><h4>旅游攻略类搜索引擎</h4><p>带领小组从 0 到 1 完成旅游垂直搜索原型，覆盖数据爬取与清洗、索引设计、后端检索接口和前端结果展示。</p></div><dl><div><dt>角色</dt><dd>项目组长 · 产品与实现</dd></div><div><dt>交付</dt><dd>可运行原型与完整搜索链路</dd></div><div><dt>能力证据</dt><dd>系统转译、技术理解、端到端交付</dd></div></dl></article>
+      <article class="project-panel" id="project-private" role="tabpanel" aria-labelledby="project-tab-private" hidden><div class="project-mark">03</div><div><h4>新零售私域流量运营分析</h4><p>结合 467 份问卷与用户行为数据拆解从入群到转化、分享的关键因素，负责数据分析与模型比较，并提出运营节奏建议。</p></div><dl><div><dt>角色</dt><dd>正大杯 · 数据分析负责人</dd></div><div><dt>方法</dt><dd>问卷研究、AARRR / AISAS、模型比较</dd></div><div><dt>能力证据</dt><dd>用户研究、数据验证、策略转化</dd></div></dl></article>
     </div>
   </div></section>
 
-  <section class="section" id="experience"><div class="wrap">
-    <div class="section-head">
-      <div><h2>经历<em>路径</em></h2></div>
-      <p>从数据分析与算法产品化出发，逐步走向复杂平台和 AI Agent 产品。这些经历共同塑造了我：既关心机制是否成立，也关心产品是否真正被使用。</p>
-    </div>
-    <div class="timeline-wrap">
-      <div class="timeline-progress" aria-hidden="true"></div>
-      <article class="role"><time>2026.05 — 至今</time><div class="role-body"><div class="company">小红书 · 企业智能部</div><h3>AI 产品经理</h3><p>参与公司级 AI 办公产品 Hi-work 建设，覆盖 Agent 输出、信息溯源、产物交付、Human-in-the-Loop、安全确认与体验优化。</p></div></article>
-      <article class="role"><time>2026.01 — 2026.04</time><div class="role-body"><div class="company">百度 · 内容产品部</div><h3>产品经理</h3><p>负责百家号运营平台多模块迭代，推动 10+ 需求上线；结合竞品、问卷与行为数据辅助季度规划，并搭建平台专属 AI 客服。</p></div></article>
-      <article class="role"><time>2024.10 — 2025.01</time><div class="role-body"><div class="company">中航成飞研究所 · 经管中心</div><h3>前沿研究员</h3><p>搭建多模型集成预测框架，并将算法封装为面向工程人员的可视化决策辅助工具，完成从模型到可用软件的闭环。</p></div></article>
-      <article class="role"><time>2023.10 — 2026.12</time><div class="role-body"><div class="company">作业帮 · 线上业务中心</div><h3>运营实习生</h3><p>以漏斗与归因分析定位新人培训、留存问题，协助重构流程与运营策略，推动结训通过率环比提升约 5pp。</p></div></article>
-    </div>
-    <div class="education">
-      <div class="subsection-label">Education</div>
-      <div class="edu-grid">
-        <article class="edu"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程 · GPA 3.96 / 4.0<br>研究方向：运筹优化、强化学习</p></article>
-        <article class="edu"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统 · GPA 前 5%<br>国家级竞赛奖 2 项、省级 4 项</p></article>
-      </div>
-    </div>
-    <div class="projects">
-      <div class="projects-head"><h3>项目选集</h3><p>课堂之外做过的一些真实项目。一级页面只保留角色与结果，展开可查看方法和过程。</p></div>
-      <div class="projects-list">
-        <details class="project"><summary><span class="project-no">01</span><span class="project-title"><span>2023.06 — 2024.06</span><h4>奇奇妙妙摄影工作室</h4></span><span class="project-role">校园创业 · 联合创始人</span><strong class="project-result">盈利 12,000+<br>好评率 100%</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">洞察毕业季“个性化写真 + 一站式服务”的需求缺口，确立定制服务定位，设计灵活定价与团体预约策略，并搭建客服、摄影、后勤三级协作体系，累计完成 30+ 订单。</p></details>
-        <details class="project"><summary><span class="project-no">02</span><span class="project-title"><span>2023.03 — 2023.07</span><h4>智慧学工系统分析与设计</h4></span><span class="project-role">产品全链路 · 项目负责人</span><strong class="project-result">20+ 页 PRD<br>组件复用 70%+</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">拆解 12 类核心业务流程，输出 PRD 与交互原型，设计数据埋点及学生画像标签体系；基于低代码平台搭建模块化组件库、8 项核心指标看板与智能问答机器人。</p></details>
-        <details class="project"><summary><span class="project-no">03</span><span class="project-title"><span>2023.03 — 2023.05</span><h4>客户行为分析与认购预测</h4></span><span class="project-role">机器学习商分 · 项目负责人</span><strong class="project-result">准确率 90%+<br>无效触达 -20%</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">整合 3 万+ 银行客户画像、营销行为与宏观经济指标，通过 EDA 识别转化关键节点；使用 Python 对比多类预测模型，并基于特征重要性提出差异化触达策略。</p></details>
-        <details class="project"><summary><span class="project-no">04</span><span class="project-title"><span>2023.01 — 2023.04</span><h4>新零售私域流量运营分析</h4></span><span class="project-role">正大杯 · 数据分析负责人</span><strong class="project-result">400+ 问卷<br>AARRR / AISAS</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">结合问卷与用户行为数据拆解从入群到转化、分享的关键影响因素，主导构建购买行为预测模型，输出减少无效推送、以专属权益替代拉新等社群运营策略。</p></details>
-        <details class="project"><summary><span class="project-no">05</span><span class="project-title"><span>2022.09 — 2022.11</span><h4>旅游攻略类搜索引擎</h4></span><span class="project-role">全栈开发 · 项目负责人</span><strong class="project-result">响应 &lt;0.5s<br>可用率 95%+</strong><span class="project-toggle" aria-hidden="true">+</span></summary><p class="project-detail">从 0 到 1 设计垂直检索产品，搭建 ElasticSearch 检索平台，独立完成万级异构数据清洗入库、打分逻辑配置与前端联动。</p></details>
-      </div>
-    </div>
+  <section class="cap-wrap" id="capabilities"><div class="wrap cap-lab">
+    <div class="deck-side" data-reveal><h2>抽一张<br><em>能力档案</em>。</h2><p>随机抽取只是入口。也可以直接选择一项能力，再翻面查看它对应的真实证据。</p><div class="deck-actions"><button class="draw-btn" type="button">抽一张</button><button class="flip-btn" type="button">翻到背面</button></div><div class="cap-directory" aria-label="选择能力"></div></div>
+    <div class="deck-stage" data-reveal><div class="deck-shadow" aria-hidden="true"></div><div class="deck-shadow two" aria-hidden="true"></div><article class="cap-card"><div class="cap-face cap-front"><span class="cap-kicker">01 / Product</span><h3>产品定义<br>与交付</h3><p>从模糊问题到可验证方案，再到跨团队落地。</p></div><div class="cap-face cap-back"><span class="cap-kicker">Evidence</span><h4>产品定义与交付</h4><ul class="cap-evidence"></ul><a class="cap-link" href="#work">查看对应案例 →</a></div></article></div>
   </div></section>
-
-  <div class="cap-wrap" id="capabilities"><div class="wrap">
-    <div class="section-head">
-      <div><h2>能力<em>组合</em></h2></div>
-      <p>我的优势不是单点技能，而是能在用户、业务与技术之间完成翻译，并把判断落成可执行方案。</p>
-    </div>
-    <div class="caps">
-      <article class="cap"><span class="num">01 / Product</span><h3>产品定义与交付</h3><p>需求分析、用户研究、竞品分析、PRD、原型与 Demo、跨团队评审、研发协同、验收上线。</p></article>
-      <article class="cap"><span class="num">02 / AI &amp; Data</span><h3>AI 与数据理解</h3><p>Agent / Skill / Tool 机制、Python、SQL、机器学习、强化学习、PyTorch，以及数据分析与决策。</p></article>
-      <article class="cap"><span class="num">03 / Systems</span><h3>复杂系统转译</h3><p>将模型、权限、状态、异常与跨端约束转化为用户可理解、团队可实施的产品机制。</p></article>
-    </div>
-  </div></div>
 
   <section class="life" id="life"><div class="wrap">
     <div class="section-head">
@@ -617,13 +782,15 @@
   </div></section>
 
   <section class="contact" id="contact"><div class="wrap contact-inner">
-    <div>
-      <h2>期待一起做出<br>真正被<em>信任</em>的<br>AI 产品。</h2>
-      <p>我正在寻找 2027 届产品经理 / AI 产品经理机会。如果你对我的经历或项目感兴趣，欢迎通过邮件联系。</p>
+    <div class="contact-copy">
+      <h2>期待一起做出<br>真正被<em>使用</em>、<br>也被信任的产品。</h2>
+      <p>我正在寻找 2027 届产品经理机会，也持续关注 AI 产品方向。如果你对我的经历或项目感兴趣，欢迎通过邮件联系。</p>
     </div>
-    <div class="contact-links">
-      <a href="mailto:zhang_xin_dan@163.com"><b>Email</b><span>zhang_xin_dan@163.com</span></a>
-    </div>
+    <aside class="contact-console" aria-label="联系信息">
+      <div class="contact-status"><span>Contact desk · 2027</span><span class="status-live">Open to opportunities</span></div>
+      <div class="contact-email"><b>Work email</b><a href="mailto:zhang_xin_dan@163.com">zhang_xin_dan@163.com</a><p>产品经理 / AI 产品经理 · 其他机会也均可沟通</p></div>
+      <div><div class="contact-actions"><a class="contact-action primary" href="mailto:zhang_xin_dan@163.com">发送邮件</a><button class="contact-action" type="button" data-copy-email>复制邮箱</button><button class="contact-action" type="button" data-back-top>回到顶部</button><a class="contact-action" href="#work">重看案例</a></div><p class="contact-note" aria-live="polite">通常会尽快回复</p></div>
+    </aside>
   </div></section>
 </main>
 
@@ -649,8 +816,8 @@
 
 <script>
   const header=document.querySelector('#header'),menu=document.querySelector('.menu'),links=document.querySelector('.nav-links');
-  const setScrolled=()=>header.classList.toggle('scrolled',scrollY>window.innerHeight*.85);
-  setScrolled();addEventListener('scroll',setScrolled,{passive:true});
+  const hero=document.querySelector('.hero');
+  if(hero)new IntersectionObserver(([entry])=>header.classList.toggle('scrolled',!entry.isIntersecting),{threshold:.05}).observe(hero);
   menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open)});
   links.addEventListener('click',e=>{if(e.target.matches('a')){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
   addEventListener('keydown',e=>{if(e.key==='Escape'){links.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
@@ -665,6 +832,137 @@
     const next=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];
     next.focus();activate(next);
   });
+
+  /* chapter reveal and current-section navigation */
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals=[...document.querySelectorAll('[data-reveal]')];
+  if(reducedMotion){reveals.forEach(el=>el.classList.add('visible'))}
+  else{
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}
+    }),{threshold:.16});
+    reveals.forEach(el=>revealObserver.observe(el));
+  }
+  const navAnchors=[...links.querySelectorAll('a[href^="#"]')];
+  const sectionMap=new Map(navAnchors.map(a=>[a.getAttribute('href').slice(1),a]));
+  const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    navAnchors.forEach(a=>a.classList.remove('active'));
+    const mapped=entry.target.id==='education'?sectionMap.get('experience'):sectionMap.get(entry.target.id);
+    if(mapped)mapped.classList.add('active');
+  }),{rootMargin:'-35% 0px -55%',threshold:0});
+  document.querySelectorAll('main section[id],main .cap-wrap[id]').forEach(section=>navObserver.observe(section));
+
+  /* case showcase: visible titles, arrows and keyboard navigation */
+  const caseTabs=[...document.querySelectorAll('.showcase-tab')];
+  const casePanels=[...document.querySelectorAll('.showcase-panel')];
+  const caseCount=document.querySelector('.showcase-count');
+  let activeCase=0;
+  function showCase(index,focus=false){
+    activeCase=(index+caseTabs.length)%caseTabs.length;
+    caseTabs.forEach((tab,i)=>{
+      const active=i===activeCase;
+      tab.setAttribute('aria-selected',String(active));
+      tab.tabIndex=active?0:-1;
+      casePanels[i].classList.toggle('active',active);
+      casePanels[i].hidden=!active;
+    });
+    caseCount.textContent=`${String(activeCase+1).padStart(2,'0')} / ${String(caseTabs.length).padStart(2,'0')}`;
+    if(focus)caseTabs[activeCase].focus();
+  }
+  caseTabs.forEach((tab,i)=>tab.addEventListener('click',()=>showCase(i)));
+  document.querySelectorAll('[data-case-dir]').forEach(button=>button.addEventListener('click',()=>showCase(activeCase+Number(button.dataset.caseDir))));
+  document.querySelector('.showcase-nav')?.addEventListener('keydown',e=>{
+    if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
+    e.preventDefault();showCase(activeCase+(e.key==='ArrowRight'?1:-1),true);
+  });
+
+  /* project index: each summary opens its own evidence panel */
+  const projectButtons=[...document.querySelectorAll('.project-chip')];
+  const projectPanels=[...document.querySelectorAll('.project-panel')];
+  function showProject(key,scroll=false){
+    const button=projectButtons.find(item=>item.dataset.project===key);
+    const panel=document.querySelector(`#project-${key}`);
+    if(!button||!panel)return;
+    const alreadyOpen=button.getAttribute('aria-expanded')==='true'&&!scroll;
+    projectButtons.forEach(item=>item.setAttribute('aria-expanded','false'));
+    projectPanels.forEach(item=>{item.classList.remove('active');item.hidden=true});
+    if(alreadyOpen)return;
+    button.setAttribute('aria-expanded','true');
+    panel.hidden=false;panel.classList.add('active');
+    if(scroll)button.scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'center'});
+  }
+  projectButtons.forEach(button=>button.addEventListener('click',()=>showProject(button.dataset.project)));
+
+  /* operation confirmation prototype */
+  const confirmFeedback=document.querySelector('.confirm-feedback');
+  document.querySelectorAll('[data-confirm]').forEach(button=>button.addEventListener('click',()=>{
+    const messages={cancel:'已取消，Agent 不会执行发送。',once:'本次已授权，下次仍会再次询问。',send:'已确认发送，并保留可追溯记录。'};
+    confirmFeedback.textContent=messages[button.dataset.confirm];
+  }));
+
+  /* artifact preview prototype */
+  const previewTabs=[...document.querySelectorAll('.preview-tab')];
+  previewTabs.forEach(tab=>tab.addEventListener('click',()=>{
+    previewTabs.forEach(item=>item.classList.toggle('active',item===tab));
+    document.querySelectorAll('.preview-pane').forEach(pane=>pane.classList.toggle('active',pane.dataset.pane===tab.dataset.preview));
+  }));
+
+  /* capability deck: random draw, direct selection and flip */
+  const capabilityData=[
+    {tag:'01 / Product',title:'产品定义\n与交付',summary:'从模糊问题到可验证方案，再到跨团队落地。',evidence:['为 AskUserInput 完成问题抽象与交互设计','把多轮追问收敛为结构化输入流程','通过可操作原型验证完整状态'],target:{type:'case',key:0},link:'查看 AskUserInput 案例 →'},
+    {tag:'02 / Research',title:'用户研究\n与体验优化',summary:'从反馈、行为和场景中识别真正值得解决的问题。',evidence:['使用 467 份问卷理解用户行为','结合 AARRR / AISAS 拆解关键环节','把分析结果转化为运营节奏建议'],target:{type:'project',key:'private'},link:'查看私域运营分析 →'},
+    {tag:'03 / Data',title:'数据分析\n与验证',summary:'让数据支持判断，而不是替代判断。',evidence:['负责问卷数据清洗与分析','比较模型结果并识别关键影响因素','明确区分分析结论与业务效果'],target:{type:'project',key:'private'},link:'查看数据分析项目 →'},
+    {tag:'04 / Systems',title:'复杂系统\n转译',summary:'把算法、流程与角色关系转化为可理解的产品结构。',evidence:['打通数据清洗、索引、接口与结果展示','把检索逻辑转化为完整产品链路','带领小组交付可运行搜索原型'],target:{type:'project',key:'search'},link:'查看旅游搜索引擎 →'},
+    {tag:'05 / Collaboration',title:'跨团队\n推进',summary:'让不同角色围绕同一个问题形成共同语言。',evidence:['梳理学生、教师与管理员角色关系','承担智慧学工项目的团队统筹','推进流程、原型与低代码实现协同'],target:{type:'project',key:'campus'},link:'查看智慧学工项目 →'}
+  ];
+  const capCard=document.querySelector('.cap-card');
+  const capDirectory=document.querySelector('.cap-directory');
+  let activeCapability=0;
+  capabilityData.forEach((item,i)=>{
+    const button=document.createElement('button');button.type='button';button.className='cap-pick';button.textContent=item.tag.split(' / ')[1];
+    button.addEventListener('click',()=>renderCapability(i));capDirectory.appendChild(button);
+  });
+  function renderCapability(index){
+    activeCapability=index;capCard.classList.remove('flipped');
+    const item=capabilityData[index];
+    capCard.querySelector('.cap-front .cap-kicker').textContent=item.tag;
+    capCard.querySelector('.cap-front h3').innerHTML=item.title.replace('\n','<br>');
+    capCard.querySelector('.cap-front p').textContent=item.summary;
+    capCard.querySelector('.cap-back h4').textContent=item.title.replace('\n','');
+    capCard.querySelector('.cap-evidence').innerHTML=item.evidence.map(text=>`<li>${text}</li>`).join('');
+    const link=capCard.querySelector('.cap-link');
+    link.href=item.target.type==='case'?`#case-panel-${item.target.key+1}`:`#project-${item.target.key}`;
+    link.textContent=item.link;
+    link.dataset.targetType=item.target.type;
+    link.dataset.targetKey=item.target.key;
+    [...capDirectory.children].forEach((button,i)=>button.classList.toggle('active',i===index));
+  }
+  document.querySelector('.draw-btn')?.addEventListener('click',()=>{
+    let next=activeCapability;while(next===activeCapability)next=Math.floor(Math.random()*capabilityData.length);renderCapability(next);
+    if(!reducedMotion){capCard.animate([{transform:'translateY(18px) rotate(2deg)',opacity:.55},{transform:'none',opacity:1}],{duration:480,easing:'cubic-bezier(.16,1,.3,1)'})}
+  });
+  document.querySelector('.flip-btn')?.addEventListener('click',()=>capCard.classList.toggle('flipped'));
+  capCard?.addEventListener('click',e=>{if(!e.target.closest('a'))capCard.classList.toggle('flipped')});
+  capCard.querySelector('.cap-link')?.addEventListener('click',e=>{
+    e.preventDefault();
+    const link=e.currentTarget;
+    if(link.dataset.targetType==='case'){
+      projectButtons.forEach(item=>item.setAttribute('aria-expanded','false'));
+      projectPanels.forEach(item=>{item.classList.remove('active');item.hidden=true});
+      showCase(Number(link.dataset.targetKey));
+      document.querySelector('#work').scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'start'});
+    }else showProject(link.dataset.targetKey,true);
+  });
+  renderCapability(0);
+
+  /* contact actions */
+  const contactNote=document.querySelector('.contact-note');
+  document.querySelector('[data-copy-email]')?.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText('zhang_xin_dan@163.com');contactNote.textContent='邮箱已复制'}
+    catch(_){contactNote.textContent='邮箱：zhang_xin_dan@163.com'}
+  });
+  document.querySelector('[data-back-top]')?.addEventListener('click',()=>document.querySelector('#top').scrollIntoView({behavior:reducedMotion?'auto':'smooth'}));
 
   /* AskUserInput demo — case 01 画中画，还原真实三卡流（单选→多选→排序） */
   const aui=document.querySelector('.aui-demo');
@@ -908,6 +1206,12 @@
       const figs=[...panel.querySelectorAll('.life-lead figure,.life-grid figure')];
       figs.forEach((fig,i)=>fig.addEventListener('click',()=>lbOpen(figs,i)));
     });
+    const journeyFigs=[...document.querySelectorAll('.journey-media')];
+    journeyFigs.forEach((fig,i)=>{
+      const open=()=>lbOpen(journeyFigs,i);
+      fig.addEventListener('click',open);
+      fig.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+    });
     lightbox.querySelector('.lb-close').addEventListener('click',lbClose);
     lightbox.querySelector('.lb-prev').addEventListener('click',()=>lbShow(lbIndex-1));
     lightbox.querySelector('.lb-next').addEventListener('click',()=>lbShow(lbIndex+1));
@@ -920,26 +1224,6 @@
     });
   }
 
-  /* timeline scroll progress — 路径随滚动生长 */
-  const tl=document.querySelector('.timeline-wrap');
-  const tlProg=document.querySelector('.timeline-progress');
-  if(tl&&tlProg){
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches){
-      tlProg.style.transform='scaleY(1)';
-    }else{
-      let tlTicking=false;
-      const tlUpdate=()=>{
-        tlTicking=false;
-        const r=tl.getBoundingClientRect();
-        const passed=Math.min(Math.max(innerHeight*.72-r.top,0),r.height);
-        tlProg.style.transform=`scaleY(${passed/r.height})`;
-      };
-      const tlOnScroll=()=>{if(!tlTicking){tlTicking=true;requestAnimationFrame(tlUpdate)}};
-      tlUpdate();
-      addEventListener('scroll',tlOnScroll,{passive:true});
-      addEventListener('resize',tlOnScroll);
-    }
-  }
 </script>
 </body>
 </html>
