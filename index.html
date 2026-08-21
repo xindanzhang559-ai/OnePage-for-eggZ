@@ -420,13 +420,19 @@
     .journey-media:hover img{transform:scale(1.035)}
     .journey-media figcaption{position:absolute;inset:auto 16px 16px;display:flex;justify-content:space-between;gap:18px;padding:12px 14px;border-radius:14px;background:rgba(251,246,236,.9);backdrop-filter:blur(12px);font:10px var(--mono);letter-spacing:.08em;color:var(--ink)}
 
-    /* education: image-like typographic panels without inventing campus photography */
+    /* education: real milestone photography with restrained institutional marks */
     .education-chapter{padding:90px 0 120px;background:var(--canvas-warm)}
     .education-stage{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
     .edu-panel{min-height:420px;border-radius:22px;overflow:hidden;position:relative;padding:42px;display:flex;flex-direction:column;justify-content:flex-end}
     .edu-panel:first-child{background:var(--peacock-dk);color:#fff}
     .edu-panel:last-child{background:var(--gold);color:#fff;margin-top:90px}
-    .edu-monogram{position:absolute;right:-20px;top:-54px;font:260px/.9 var(--serif);opacity:.11}
+    .edu-panel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,28,34,.08) 18%,rgba(12,28,34,.3) 50%,rgba(12,28,34,.94) 100%)}
+    .edu-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .edu-panel:first-child .edu-photo{object-position:center 34%}
+    .edu-panel:last-child .edu-photo{object-position:center 52%}
+    .edu-panel:last-child h3{font-size:clamp(36px,3vw,46px)}
+    .edu-logo{position:absolute;z-index:2;right:24px;top:24px;width:66px;height:66px;object-fit:contain;padding:9px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 10px 28px rgba(0,0,0,.16)}
+    .edu-content{position:relative;z-index:2}
     .edu-panel .meta{font:11px var(--mono);letter-spacing:.15em;text-transform:uppercase;opacity:.75;margin-bottom:12px}
     .edu-panel h3{font:500 clamp(36px,4vw,58px)/1 var(--serif);margin-bottom:18px}
     .edu-panel p{max-width:420px;color:inherit;opacity:.82}
@@ -521,6 +527,23 @@
     .flow-step:not(:last-child)::after{content:"↓";position:absolute;bottom:-18px;left:50%;color:var(--gold-dk)}
     .metric-card{padding:12px;border-left:3px solid var(--peacock);background:#f5f2eb;margin-bottom:10px}.metric-card b{display:block;font:22px var(--serif);font-weight:500}.metric-card span{font:9px var(--mono);color:var(--muted)}
 
+    /* case evidence: original product screens lead; recreated demos are secondary */
+    .evidence-gallery{display:grid;gap:12px}
+    .evidence-figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--canvas-warm)}
+    .evidence-figure img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#fff}
+    .evidence-lead img{aspect-ratio:1.95/1}
+    .evidence-figure figcaption{display:flex;justify-content:space-between;gap:14px;padding:10px 12px;font:9px/1.45 var(--mono);color:var(--muted);background:#fff}
+    .evidence-figure figcaption b{color:var(--gold-dk);font-weight:600;white-space:nowrap}
+    .evidence-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .prototype-assist{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.54);overflow:hidden}
+    .prototype-assist summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:12px 14px;font:10px var(--mono);color:var(--ink-soft)}
+    .prototype-assist summary::-webkit-details-marker{display:none}
+    .prototype-assist summary::after{content:"+";color:var(--gold-dk);font-size:15px;line-height:10px}
+    .prototype-assist[open] summary::after{content:"−"}
+    .prototype-assist summary span{color:var(--muted)}
+    .prototype-body{padding:0 12px 12px}
+    .prototype-body .search-demo,.prototype-body .campus-demo{min-height:390px}
+
     /* compact project index */
     .project-index{margin-top:34px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
     .project-chip{width:100%;text-align:left;border:1px solid rgba(255,255,255,.16);padding:20px;border-radius:16px;color:#fff;position:relative;transition:background .2s,border-color .2s,transform .2s}
@@ -598,9 +621,10 @@
     }
     @media(max-width:560px){
       .chapter-intro{margin-bottom:42px}.journey-grid{gap:52px}.journey-copy{padding-left:44px}.journey-index{font-size:32px}
-      .journey-media figcaption{inset:auto 10px 10px;padding:10px;font-size:9px}.edu-panel{min-height:310px;padding:24px}.edu-monogram{font-size:190px}
+      .journey-media figcaption{inset:auto 10px 10px;padding:10px;font-size:9px}.edu-panel{min-height:310px;padding:24px}.edu-panel h3{font-size:36px}.edu-facts{margin-top:22px;padding-top:18px}.edu-monogram{font-size:190px}
       .showcase-panel{padding:22px}.showcase-tab{min-width:180px;padding:16px}.case-meta{grid-template-columns:1fr}.confirm-demo{padding:10px;min-height:400px}
       .preview-pane{padding:10px}.pdf-page{width:84%}.sheet-row{grid-template-columns:42px 1.4fr 1fr}.sheet-row span:last-child{display:none}
+      .evidence-pair{grid-template-columns:1fr}.evidence-figure figcaption{display:block}.evidence-figure figcaption b{display:block;margin-bottom:3px}.prototype-assist summary span{display:none}
       .search-result{grid-template-columns:70px 1fr}.search-pipeline{grid-template-columns:repeat(2,1fr)}.search-pipeline span:nth-child(2)::after{display:none}
       .campus-board{grid-template-columns:1fr}.campus-metrics{min-height:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric-card{margin:0}
       .cap-face{padding:28px}.cap-card{height:390px}.deck-stage{min-height:440px}.deck-shadow{width:82%}
@@ -692,13 +716,13 @@
   <section class="education-chapter" id="education"><div class="wrap">
     <header class="chapter-intro" data-reveal><h2>两段教育，<br>一条<em>交叉学科</em>坐标。</h2><p>信息系统训练我连接业务与技术，管理科学让我用优化与建模理解复杂决策。</p></header>
     <div class="education-stage" data-reveal>
-      <article class="edu-panel"><span class="edu-monogram" aria-hidden="true">E</span><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程，研究方向包括运筹优化与强化学习。</p><div class="edu-facts"><div><b>3.96</b><span>GPA / 4.0</span></div><div><b>交叉</b><span>管理 × 算法</span></div></div></article>
-      <article class="edu-panel"><span class="edu-monogram" aria-hidden="true">N</span><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统，从系统分析、数据到产品设计建立完整基础。</p><div class="edu-facts"><div><b>Top 5%</b><span>专业成绩</span></div><div><b>6 项</b><span>国家 / 省级竞赛奖</span></div></div></article>
+      <article class="edu-panel"><img class="edu-photo" src="assets/photos/education/uestc-opening.jpg" alt="电子科技大学研究生开学典礼现场" loading="lazy"><img class="edu-logo" src="assets/photos/education/uestc-logo.png" alt="电子科技大学校徽" loading="lazy"><div class="edu-content"><div class="meta">2024 — 2027 · Master</div><h3>电子科技大学</h3><p>管理科学与工程，研究方向包括运筹优化与强化学习。</p><div class="edu-facts"><div><b>3.96</b><span>GPA / 4.0</span></div><div><b>交叉</b><span>管理 × 算法</span></div></div></div></article>
+      <article class="edu-panel"><img class="edu-photo" src="assets/photos/education/nuaa-graduation.jpg" alt="张馨丹在南京航空航天大学的毕业留影" loading="lazy"><img class="edu-logo" src="assets/photos/education/nuaa-logo.png" alt="南京航空航天大学校徽" loading="lazy"><div class="edu-content"><div class="meta">2020 — 2024 · Bachelor</div><h3>南京航空航天大学</h3><p>信息管理与信息系统，从系统分析、数据到产品设计建立完整基础。</p><div class="edu-facts"><div><b>Top 5%</b><span>专业成绩</span></div><div><b>6 项</b><span>国家 / 省级竞赛奖</span></div></div></div></article>
     </div>
   </div></section>
 
   <section class="work section" id="work"><div class="wrap">
-    <header class="chapter-intro" data-reveal><h2>一个舞台，<br>三种<em>产品判断</em>。</h2><p>选择标题切换案例。每个案例都保留可操作的体验，而不是只展示一段结论。</p></header>
+    <header class="chapter-intro" data-reveal><h2>一个舞台，<br>三种<em>产品判断</em>。</h2><p>选择标题切换案例。真实页面与产品框架作为核心证据，交互原型只负责补充体验。</p></header>
     <div class="showcase-shell" data-reveal>
       <div class="showcase-nav" role="tablist" aria-label="代表案例">
         <button class="showcase-tab" role="tab" aria-selected="true" aria-controls="case-panel-1"><small>01 · AI 产品</small><strong>Agent 人机协作</strong></button>
@@ -717,11 +741,11 @@
         </article>
         <article class="showcase-panel" id="case-panel-2" role="tabpanel" hidden>
           <div class="case-copy"><div class="case-no">02</div><h3>从检索需求到可运行的搜索产品</h3><p>带领小组从 0 到 1 完成旅游垂直搜索原型，把数据处理、索引设计、检索接口和结果展示串成完整链路。</p><div class="case-meta"><div><b>我的角色</b><span>项目组长 · 产品与实现</span></div><div><b>能力维度</b><span>技术理解、系统转译、端到端交付</span></div></div></div>
-          <div class="case-stage"><div class="search-demo"><form class="search-box"><input value="成都周末自然风光" aria-label="搜索关键词"><button type="submit">搜索</button></form><div class="search-result"><div class="search-thumb"></div><div><small>相关度 0.92 · 攻略</small><h4>成都周边两日自然路线</h4><p>根据关键词、内容字段与权重配置返回排序结果，呈现标题、摘要与目的地信息。</p></div></div><div class="search-result"><div class="search-thumb"></div><div><small>相关度 0.86 · 游记</small><h4>山谷、瀑布与古镇路线</h4><p>异构数据完成清洗入库后，通过统一索引支持关键词召回。</p></div></div><div class="search-pipeline"><span>数据清洗</span><span>MySQL</span><span>ElasticSearch</span><span>结果页</span></div></div></div>
+          <div class="case-stage"><div class="evidence-gallery"><figure class="evidence-figure evidence-lead"><img src="assets/cases/search-interface.jpg" alt="旅游搜索引擎输入火锅关键词后的真实结果页面" loading="lazy"><figcaption><b>真实结果页</b><span>分类检索、摘要与图文结果共同构成结果展示层。</span></figcaption></figure><div class="evidence-pair"><figure class="evidence-figure"><img src="assets/cases/search-architecture.jpg" alt="旅游搜索引擎前后端实现框架图" loading="lazy"><figcaption><b>实现框架</b><span>前端、接口与后端技术链路。</span></figcaption></figure><figure class="evidence-figure"><img src="assets/cases/search-index.jpg" alt="Elasticsearch 旅游内容索引界面" loading="lazy"><figcaption><b>检索底座</b><span>多类旅游内容进入统一索引。</span></figcaption></figure></div><details class="prototype-assist"><summary>辅助体验原型 <span>展开试用检索链路</span></summary><div class="prototype-body"><div class="search-demo"><form class="search-box"><input value="成都周末自然风光" aria-label="搜索关键词"><button type="submit">搜索</button></form><div class="search-result"><div class="search-thumb"></div><div><small>相关度 0.92 · 攻略</small><h4>成都周边两日自然路线</h4><p>根据关键词、内容字段与权重配置返回排序结果，呈现标题、摘要与目的地信息。</p></div></div><div class="search-result"><div class="search-thumb"></div><div><small>相关度 0.86 · 游记</small><h4>山谷、瀑布与古镇路线</h4><p>异构数据完成清洗入库后，通过统一索引支持关键词召回。</p></div></div><div class="search-pipeline"><span>数据清洗</span><span>MySQL</span><span>ElasticSearch</span><span>结果页</span></div></div></div></details></div></div>
         </article>
         <article class="showcase-panel" id="case-panel-3" role="tabpanel" hidden>
           <div class="case-copy"><div class="case-no">03</div><h3>把多角色校园事务变成可配置系统</h3><p>围绕学生、辅导员、教师和管理员梳理业务流程，完成核心模块、交互原型与低代码实现，并参与团队统筹。</p><div class="case-meta"><div><b>我的角色</b><span>产品设计 · 团队统筹</span></div><div><b>能力维度</b><span>角色建模、流程设计、协作推进</span></div></div></div>
-          <div class="case-stage"><div class="campus-demo"><div class="campus-top"><strong>智慧学工 · 事务中心</strong><div class="campus-role-tabs"><button class="campus-role active" data-role="student">学生</button><button class="campus-role" data-role="counselor">辅导员</button><button class="campus-role" data-role="admin">管理员</button></div></div><div class="campus-board"><div class="campus-flow"><h4>请假申请流程</h4><div class="flow-step" data-flow-step>填写申请与证明</div><div class="flow-step" data-flow-step>辅导员审核</div><div class="flow-step" data-flow-step>结果通知与归档</div></div><div class="campus-metrics"><h4>角色工作台</h4><div class="metric-card"><b data-campus-value="12">12</b><span>待处理事项</span></div><div class="metric-card"><b>4 类</b><span>核心业务模块</span></div><div class="metric-card"><b>1 条</b><span>统一流程状态</span></div></div></div></div></div>
+          <div class="case-stage"><div class="evidence-gallery"><figure class="evidence-figure evidence-lead"><img src="assets/cases/campus-dashboard.jpg" alt="智慧学工系统学生端真实工作台界面" loading="lazy"><figcaption><b>真实学生工作台</b><span>统一承载快捷发起、消息状态与学生数据概览。</span></figcaption></figure><div class="evidence-pair"><figure class="evidence-figure"><img src="assets/cases/campus-flow.jpg" alt="智慧学工系统宿舍报修跨角色业务流程" loading="lazy"><figcaption><b>业务流程</b><span>学生、宿管、维修部与外包商协同。</span></figcaption></figure><figure class="evidence-figure"><img src="assets/cases/campus-framework.jpg" alt="智慧学工系统整体信息框架" loading="lazy"><figcaption><b>信息框架</b><span>业务模块、数据分析与外部系统关系。</span></figcaption></figure></div><details class="prototype-assist"><summary>辅助体验原型 <span>展开试用角色切换</span></summary><div class="prototype-body"><div class="campus-demo"><div class="campus-top"><strong>智慧学工 · 事务中心</strong><div class="campus-role-tabs"><button class="campus-role active" data-role="student">学生</button><button class="campus-role" data-role="counselor">辅导员</button><button class="campus-role" data-role="admin">管理员</button></div></div><div class="campus-board"><div class="campus-flow"><h4>请假申请流程</h4><div class="flow-step" data-flow-step>填写申请与证明</div><div class="flow-step" data-flow-step>辅导员审核</div><div class="flow-step" data-flow-step>结果通知与归档</div></div><div class="campus-metrics"><h4>角色工作台</h4><div class="metric-card"><b data-campus-value="12">12</b><span>待处理事项</span></div><div class="metric-card"><b>4 类</b><span>核心业务模块</span></div><div class="metric-card"><b>1 条</b><span>统一流程状态</span></div></div></div></div></div></details></div></div>
         </article>
       </div>
       <div class="showcase-controls"><span class="showcase-count">01 / 03</span><div class="showcase-arrows"><button class="showcase-arrow" data-case-dir="-1" aria-label="上一个案例">←</button><button class="showcase-arrow" data-case-dir="1" aria-label="下一个案例">→</button></div></div>
